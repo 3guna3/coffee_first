@@ -1,0 +1,2 @@
+class BeansComment < ApplicationRecord
+end
