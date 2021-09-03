@@ -11,6 +11,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= yield %>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+    <main>
+      <div class="container mx-auto">
+        <%= yield %>
+      </div>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>

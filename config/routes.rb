@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :shops, only: [:create, :show, :index]
   resources :beans, only: [:create, :show, :index]
   resources :user, only: [:show, :edit]
+
+  devise_scope :user do
+    get "/users/sign_out" => "devise/sessions#destroy"
+  end
 end
