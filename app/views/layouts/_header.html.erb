@@ -1,5 +1,28 @@
+<h1 class="text-4xl font-semibold">Cofee First</h1>
+<div>
+  <a href="#">検索</a>
+</div>
+<div class="relative group bg-red-100">
+  <div><a href="#">登録</a></div>
+  <div class="absolute invisible group-hover:visible bg-green-100">
+    <div><a href="#">お店を登録</a></div>
+    <div><a href="#">コーヒ豆を登録</a></div>
+  </div>
+</div>
+<div class="dropdown">
+  <div><a href="#">編集</a></div>
+  <div class="menu">
+    <div><a href="#">お店を編集</a></div>
+    <div><a href="#">豆を編集</a></div>
+  </div>
+</div>
 <% if user_signed_in? %>
-  <%= link_to "アカウント編集", edit_user_registration_path %>
+  <div class="dropdown">
+    <div><a href="#"><%= current_user.email %></a></div>
+    <div class="menu">
+      <div><%= link_to "アカウント編集", edit_user_registration_path %></div>
+    </div>
+  </div>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"} %>
 <% else %>
   <%= link_to "新規登録", new_user_registration_path %>
