@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      shop: コーヒーショップ
+      bean: コーヒー豆
+      shop_comment: コーヒーショップへのコメント
+      beans_comment: コーヒー豆へのコメント
+    attributes:
+      shop:
+        name: 店名
+        prefecture: 都道府県
+        address: 住所
+        TEL: 電話番号
+        URL: url
+        img: 画像
+      bean:
+        name: 豆の名称
+        price: 価格
+        country: 生産国
+        farm: 農園名
+        variety: 品種
+        screen_size: 大きさ
+        img: 画像
+      shop_comment:
+        content: 内容
+        rate: 評価
+      beans_comment:
+        content: 内容
+        bitterness: 苦味レベル
+        acidity: 酸味レベル
+        body: コクレベル
