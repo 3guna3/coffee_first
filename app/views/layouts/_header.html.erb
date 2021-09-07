@@ -1,45 +1,49 @@
-<h1 class="text-4xl font-semibold md:text-xl">Cofee First</h1>
-<div>
-  <a href="#">検索</a>
-</div>
-<div>
-  登録
-  <button>
-    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-      <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
-    </svg>
+<nav class="nav navbar-expand-md navbar-dark bg-secondary fixed-top">
+  <div class="navbar-brand">
+    <h1 class="text-4xl font-semibold md:text-xl">Cofee First</h1>
+  </div>
+  <button class="navbar-toggler hamburger-menu" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <ul>
-    <li class="border-b"><a href="#" class="hover:bg-gray-600 rounded">お店を登録</a></li>
-    <li class="border-b"><a href="#" class="hover:bg-gray-600 rounded">豆を登録</a></li>
-  </ul>
-</div>
-<div>
-  編集
-  <button>
-    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-      <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
-    </svg>
-  </button>
-  <ul>
-    <li class="border-b"><a href="#" class="hover:bg-gray-600 rounded">お店を編集</a></li>
-    <li class="border-b"><a href="#" class="hover:bg-gray-600 rounded">豆を編集</a></li>
-  </ul>
-</div>
-<% if user_signed_in? %>
-  <div>
-    <%= current_user.email %>
-    <button>
-      <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-        <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/>
-      </svg>
-    </button>
-    <ul>
-      <li class="border-b"><%= link_to "アカウント編集", edit_user_registration_path, class: "hover:bg-gray-600 rounded" %></li>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown active">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          検索
+        </a>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          登録
+        </a>
+        <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
+          <%= link_to "お店を登録", shops_path, class: "dropdown-item" %>
+          <%= link_to "豆を登録", beans_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          編集
+        </a>
+        <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
+          <%= link_to "お店を編集", shops_path, class: "dropdown-item" %>
+          <%= link_to "豆を編集", beans_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.email %>
+          </a>
+          <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
+            <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "nav-item nav-link active" %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
+        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+      <% end %>
     </ul>
   </div>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"} %>
-<% else %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-<% end %>
+</nav>
