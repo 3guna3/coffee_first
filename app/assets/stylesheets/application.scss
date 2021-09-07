@@ -16,6 +16,10 @@
 
 @import 'bootstrap/scss/bootstrap';
 
+body {
+  padding-top: 56px;
+}
+
 .base-container {
   margin: 0 auto;
   padding: 1rem;
@@ -43,4 +47,14 @@ body {
 
 .hamburger-menu {
   margin: 0 0 0 auto;
+}
+
+// フラッシュ
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }
