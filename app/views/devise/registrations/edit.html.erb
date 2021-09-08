@@ -13,7 +13,7 @@
           <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "xxx@email.com" %>
         </div>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+          <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
         <% end %>
         <div class=form-group>
           <%= f.label :password, "パスワード変更" %><i> (変更したい場合) </i>
@@ -36,8 +36,8 @@
           <%= f.text_area :self_introduction, class: "form-control", placeholder: "最大500文字", maxlength: 500 %>
         </div>
         <%= f.submit "変更する", class: "btn btn-info btn-block form-submit-btn" %>
-        <%= link_to  "マイページへ", root_path, class: "btn btn-link btn-block" %>
-      <% end %>
-    </div>
+        <%= link_to  "マイページへ", root_path, class: "btn btn-link btn-block" %></div>
+    <% end %>
   </div>
+</div>
 </div>
