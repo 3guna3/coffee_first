@@ -33,9 +33,10 @@
       <% if user_signed_in? %>
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.email %>
+            <%= current_user.name %>
           </a>
           <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
+            <%= link_to "アカウント詳細", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item" %>
           </div>
         </li>
