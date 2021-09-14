@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_user!, { only: [:new, :create] }
+  before_action :authenticate_user!, { except: [:index, :show] }
+  before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
 
   def new
     @shop = Shop.new
@@ -15,6 +16,18 @@ class ShopsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    @shop.update!(shop_params)
+    redirect_to @shop
+  end
+
+  def destroy
+    @shop.destroy!
+    redirect_to root_path
+  end
+
   def show; end
 
   def index
@@ -22,6 +35,10 @@ class ShopsController < ApplicationController
   end
 
   private
+
+  def set_shop
+    @shop = Shop.find(params[:id])
+  end
 
   def shop_params
     params.require(:shop).permit(:name, :prefecture, :address, :TEL, :URL, :img)
