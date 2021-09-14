@@ -9,14 +9,16 @@ class ShopsController < ApplicationController
   def create
     @shop = current_user.shops.new(shop_params)
     if @shop.save
-      redirect_to @shop, notice: "登録しました"
+      redirect_to root_path, notice: "登録しました"
     else
       flash.now[:alert] = "登録に失敗しました"
       render :new
     end
   end
 
-  def edit; end
+  def edit
+    @shop = Shop.find(params[:id])
+  end
 
   def update
     @shop.update!(shop_params)
@@ -31,7 +33,7 @@ class ShopsController < ApplicationController
   def show; end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.order(:created_at)
   end
 
   private
@@ -41,6 +43,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :prefecture, :address, :TEL, :URL, :img)
+    params.require(:shop).permit(:name, :prefecture, :address, :TEL, :URL, :img, :user_id)
   end
 end
