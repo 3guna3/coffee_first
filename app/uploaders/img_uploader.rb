@@ -30,7 +30,7 @@ class ImgUploader < CarrierWave::Uploader::Base
   process convert: "jpg"
 
   def filename
-    super.chomp(File.extname(super)) + ".jpg" if original_filename.present?
+    "#{super.chomp(File.extname(super))}.jpg" if original_filename.present?
   end
 
   # Create different versions of your uploaded files:
