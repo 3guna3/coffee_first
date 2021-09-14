@@ -3,6 +3,7 @@
   <div class=row>
     <div class="col-md6 col-md-offset-3 form-wrapper">
       <%= form_for(@shop) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
         <div class=form-group>
           <%= f.label :name, "店舗名" %>
           <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "最大50文字", maxlength: 50 %>

@@ -6,7 +6,13 @@ class ShopsController < ApplicationController
   end
 
   def create
-    current_user.shops.create!(shop_params)
+    @shop = current_user.shops.new(shop_params)
+    if @shop.save
+      redirect_to @shop, notice: "登録しました"
+    else
+      flash.now[:alert] = "登録に失敗しました"
+      render :new
+    end
   end
 
   def show; end

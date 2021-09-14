@@ -1,11 +1,10 @@
 class Shop < ApplicationRecord
   belongs_to :user
 
-  with_options presence: true do
-    validates :name
-    validates :prefecture
-    validates :address
-  end
+  validates :name, presence: true
+  validates :prefecture, numericality: { greater_than: 0, message: "を選択してください" }
+  validates :address, presence: true
+
   enum prefecture: {
     "---": 0,
     北海道: 1, 青森県: 2, 岩手県: 3, 宮城県: 4, 秋田県: 5, 山形県: 6, 福島県: 7,
