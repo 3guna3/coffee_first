@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+  has_many :beans
   belongs_to :user
 
   validates :name, presence: true

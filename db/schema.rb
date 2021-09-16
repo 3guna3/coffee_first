@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_110037) do
+ActiveRecord::Schema.define(version: 2021_09_16_112124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_09_16_110037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "shop_id"
+    t.index ["shop_id"], name: "index_beans_on_shop_id"
     t.index ["user_id"], name: "index_beans_on_user_id"
   end
 
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_110037) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "beans", "shops"
   add_foreign_key "beans", "users"
   add_foreign_key "shops", "users"
 end
