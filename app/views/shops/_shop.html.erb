@@ -1,8 +1,11 @@
 <div>
-  <p>【メールアドレス】 <%= shop.user.email %></p>
+  <p>【店舗名】 <%= shop.name %></p>
   <p>
     <%= link_to "詳細", shop %>
-    <%= link_to "編集", edit_shop_path(shop) %>
+    <% if current_user.id == shop.user_id %>
+      <%= link_to "編集", edit_shop_path(shop) %>
+      <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
+    <% end %>
   </p>
 </div>
 <hr>
