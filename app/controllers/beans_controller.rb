@@ -1,5 +1,6 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
+  before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
 
   def new
     @bean = Bean.new
@@ -17,14 +18,12 @@ class BeansController < ApplicationController
 
   def show; end
 
-  def index
-    @beans = Bean.order(:created_at)
-  end
+  def index; end
 
   def edit; end
 
   def update
-    @bean.update!(bean.params)
+    @bean.update!(bean_params)
     redirect_to @bean
   end
 

@@ -31,7 +31,7 @@ class ShopsController < ApplicationController
   def show; end
 
   def index
-    @shops = Shop.order(:created_at)
+    @shops = Shop.includes(:user).order(:created_at)
   end
 
   private
