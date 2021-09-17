@@ -1,8 +1,8 @@
 class BeansController < ApplicationController
-  before_action :authenticate_user, { except: [:index, :show] }
+  before_action :authenticate_user!, { except: [:index, :show] }
 
   def new
-    @bean = Bean.new!
+    @bean = Bean.new
   end
 
   def create
@@ -40,6 +40,6 @@ class BeansController < ApplicationController
   end
 
   def bean_params
-    params.require(:shop).permit(:name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id)
+    params.require(:bean).permit(:name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id)
   end
 end

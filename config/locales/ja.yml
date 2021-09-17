@@ -14,13 +14,14 @@ ja:
         URL: url
         img: 画像
       bean:
-        name: 豆の名称
+        name: 豆の名前
         price: 価格
         country: 生産国
         farm: 農園名
         variety: 品種
         screen_size: 大きさ
         img: 画像
+        shop_id: 販売店名
       shop_comment:
         content: 内容
         rate: 評価

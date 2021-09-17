@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "users/:id/profile", to: "users#show", as: "user_profile"
   root "shops#index"
   resources :shops
-  resources :beans, only: [:create, :show, :index]
+  resources :beans
   resources :users, only: [:show, :edit]
 
   devise_scope :user do
