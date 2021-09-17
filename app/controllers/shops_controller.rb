@@ -28,7 +28,9 @@ class ShopsController < ApplicationController
     redirect_to root_path
   end
 
-  def show; end
+  def show
+    @beans = Bean.where(shop_id: @shop.id)
+  end
 
   def index
     @shops = Shop.includes(:user).order(:created_at)
