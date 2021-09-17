@@ -1,0 +1,40 @@
+<div class=row>
+  <div class="col-md6 col-md-offset-3 form-wrapper">
+    <%= form_with model: @bean, local: true do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class=form-group>
+        <%= f.label :shop_id, "販売店名" %>
+        <%= f.select :shop_id, Shop.all.map { |p| [p.name, p.id] }, {prompt: "---"}, {class: "form-control", style: "margin-bottom: 15px;", data: {} } %>
+      </div>
+      <div class=form-group>
+        <%= f.label :name, "豆の名前" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "最大50文字", maxlength: 50 %>
+      </div>
+      <div class=form-group>
+        <%= f.label :price, "価格" %>
+        <%= f.number_field :price, autofocus: true, class: "form-control", placeholder: "100g当たりの価格" %>
+      </div>
+      <div class=form-group>
+        <%= f.label :country, "生産地" %>
+        <%= f.select :country, Bean.countries.keys.map {|k| [k, k]}, {}, {class: "form-control", style: "margin-bottom: 15px;", data: {} } %>
+      </div>
+      <div class=form-group>
+        <%= f.label :farm, "農園" %>
+        <%= f.text_field :farm, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :valiety, "品種" %>
+        <%= f.text_field :valiety, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :screen_size, "大きさ" %>
+        <%= f.number_field :screen_size, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :img, "豆のイメージ" %><br />
+        <%= f.file_field :img %>
+      </div>
+      <%= f.submit "登録", class: "btn btn-info btn-block form-submit-btn" %>
+    <% end %>
+  </div>
+</div>
