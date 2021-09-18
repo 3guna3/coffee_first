@@ -1,1 +1,21 @@
-
+<div class="container">
+  <h1 class="form-title">店舗詳細</h1>
+  <div class=row>
+    <div class="col-md6 col-md-offset-3 form-wrapper">
+      <p>【店舗名】<%= @shop.name %></p>
+      <p>【取扱豆】</p>
+      <% @beans.each do |bean| %>
+        <div class="row">
+          <%= bean.name %>
+        </div>
+        <p>
+          <%= link_to "詳細", bean%>
+          <% if current_user && current_user.id == bean.user_id %>
+            <%= link_to "編集", edit_bean_path(bean) %>
+            <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

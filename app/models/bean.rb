@@ -1,9 +1,12 @@
 class Bean < ApplicationRecord
-  with_options presence: true do
-    validates :name
-    validates :price
-    validates :country
-  end
+  belongs_to :user
+  belongs_to :shop, optional: true
+
+  validates :shop_id, presence: { message: "を選択してください" }
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :country, exclusion: { in: %w[---], message: "を選択してください" }
+
   enum country: {
     "---": 0,
     アメリカ合衆国ハワイ: 1, アンゴラ: 2, イエメン: 3, インド: 4, インドネシア: 5, ウガンダ: 6, エクアドル: 7,

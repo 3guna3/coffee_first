@@ -1,8 +1,9 @@
 class Shop < ApplicationRecord
+  has_many :beans
   belongs_to :user
 
   validates :name, presence: true
-  validates :prefecture, numericality: { greater_than: 0, message: "を選択してください" }
+  validates :prefecture, exclusion: { in: %w[---], message: "を選択してください" }
   validates :address, presence: true
 
   enum prefecture: {
