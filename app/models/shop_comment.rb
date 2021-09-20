@@ -1,6 +1,4 @@
 class ShopComment < ApplicationRecord
-  with_options presence: true do
-    validates :content
-    validates :rate
-  end
+  belongs_to :user
+  belongs_to :shop
 end
