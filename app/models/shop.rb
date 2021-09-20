@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
-  has_many :beans
   belongs_to :user
+  has_many :beans, dependent: :destroy
+  has_many :shop_comments, dependent: :destroy
 
   validates :name, presence: true
   validates :prefecture, exclusion: { in: %w[---], message: "を選択してください" }
