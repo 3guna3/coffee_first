@@ -16,6 +16,20 @@
           <% end %>
         </p>
       <% end %>
+      <h2>コメント一覧</h2>
+      <% @shop_comments.each do |c| %>
+        <div>
+          <%= c.content %>
+          <hr>
+        </div>
+      <% end %>
+      <%= form_for [@shop, @shop_comment] do |f| %>
+        <%= f.text_field :content %>
+        <%= f.number_field :rate %>
+        <%= f.hidden_field :shop_id, value: @shop.id %>
+        <br>
+        <%= f.submit "コメントする" %>
+      <% end %>
     </div>
   </div>
 </div>
