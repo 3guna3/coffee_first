@@ -19,16 +19,24 @@
       <h2>コメント一覧</h2>
       <% @shop_comments.each do |c| %>
         <div>
+          <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
           <%= c.content %>
+          <%= c.rate %>
           <hr>
         </div>
       <% end %>
       <%= form_for [@shop, @shop_comment] do |f| %>
-        <%= f.text_field :content %>
-        <%= f.number_field :rate %>
+        <div class="form-group">
+          <%= f.label :content, "内容"%>
+          <%= f.text_field :content %>
+        </div>
+        <div class="form-group">
+          <%= f.label :rate, "評価" %>
+          <%= f.number_field :rate %>
+        </div>
         <%= f.hidden_field :shop_id, value: @shop.id %>
         <br>
-        <%= f.submit "コメントする" %>
+        <%= f.submit "コメントする", class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

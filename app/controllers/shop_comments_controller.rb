@@ -2,7 +2,6 @@ class ShopCommentsController < ApplicationController
   before_action :authenticate_user!, { only: [:create, :edit, :update, :destroy] }
   before_action :set_shop_comment, { only: [:edit, :update, :destroy, :show] }
 
-
   def create
     @shop_comment = current_user.shop_comments.new(shop_comment_params)
     if @shop_comment.save
@@ -34,6 +33,6 @@ class ShopCommentsController < ApplicationController
   end
 
   def shop_comment_params
-    params.require(:shop_comment).permit(:content, :rate, :shop_id)
+    params.require(:shop_comment).permit(:content, :rate, :user_id, :shop_id)
   end
 end
