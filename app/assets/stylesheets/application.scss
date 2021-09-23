@@ -16,9 +16,21 @@
 
 @import 'bootstrap/scss/bootstrap';
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/regular';
+
+body {
+  min-height: 100vh;
+  color: black;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  font-family: sans-serif;
+}
+
 .base-container {
+  @extend .container-fluid;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 30px 15px;
 }
 
 .mw-sm {

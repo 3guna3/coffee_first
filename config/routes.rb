@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
   get "users/:id/profile", to: "users#show", as: "user_profile"
   root "shops#index"
-  resources :shops
+  resources :shops do
+    resources :shop_comments
+  end
   resources :beans
   resources :users, only: [:show, :edit]
 
