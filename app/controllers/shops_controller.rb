@@ -32,6 +32,11 @@ class ShopsController < ApplicationController
     @beans = Bean.where(shop_id: @shop.id)
     @shop_comments = @shop.shop_comments
     @shop_comment = current_user.shop_comments.new
+    @average_rate = if @shop.shop_comments.blank?
+                      0
+                    else
+                      @shop.shop_comments.average(:rate).round(2)
+                    end
   end
 
   def index
