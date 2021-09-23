@@ -1,5 +1,6 @@
 <div>
   <p>【店舗名】 <%= shop.name %></p>
+  <p>【平均評価】</p>
   <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
   <%= render "rate_average" %>
   <p>
