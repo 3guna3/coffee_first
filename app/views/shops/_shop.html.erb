@@ -1,5 +1,7 @@
 <div>
   <p>【店舗名】 <%= shop.name %></p>
+  <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
+  <%= render "rate_average" %>
   <p>
     <%= link_to "詳細", shop %>
     <% if current_user && current_user.id == shop.user_id %>
