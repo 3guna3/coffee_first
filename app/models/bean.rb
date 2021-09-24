@@ -1,6 +1,7 @@
 class Bean < ApplicationRecord
   belongs_to :user
   belongs_to :shop, optional: true
+  has_many :beans_comments, dependent: :destroy
 
   validates :shop_id, presence: { message: "を選択してください" }
   validates :name, presence: true
