@@ -1,0 +1,2 @@
+module BeansCommentsHelper
+end
