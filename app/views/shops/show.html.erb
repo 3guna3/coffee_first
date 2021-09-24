@@ -5,7 +5,7 @@
       <p>【店舗名】<%= @shop.name %></p>
       <p>【平均評価】</p>
       <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>></div>
-      <%= render "rate_average" %>
+      <%= render "/layouts/average" %>
       <span><%= @shop.shop_comments.count %> 件の評価</span>
       <p>【取扱豆】</p>
       <% @beans.each do |bean| %>
