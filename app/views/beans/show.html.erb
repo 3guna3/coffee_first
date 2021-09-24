@@ -1,1 +1,20 @@
-
+<div class="container">
+  <h1 class="form-title">詳細</h1>
+  <div class=row>
+    <div class="col-md6 col-md-offset-3 form-wrapper">
+      <p>【コヒー豆名】<%= @bean.name %></p>
+      <p>【販売店名】<%= @bean.id %></p>
+      <p>【平均評価】</p>
+      <span><%= @bean.beans_comments.count %> 件の評価</span>
+      <p>【苦味レベル】</p>
+      <div class="average-review-rating" data-score=<%= @bean_comments.average(:bitterness) %>></div>
+      <%= render "average" %>
+      <p>【酸味レベル】</p>
+      <div class="average-review-rating" data-score=<%= @bean_comments.average(:acidity) %>></div>
+      <%= render "average" %>
+      <p>【コクレベル】</p>
+      <div class="average-review-rating" data-score=<%= @bean_comments.average(:body) %>></div>
+      <%= render "average" %>
+    </div>
+  </div>
+</div>
