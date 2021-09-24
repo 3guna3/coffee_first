@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_233908) do
+ActiveRecord::Schema.define(version: 2021_09_24_013537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,12 @@ ActiveRecord::Schema.define(version: 2021_09_20_233908) do
     t.float "bitterness", null: false
     t.float "acidity", null: false
     t.float "body", null: false
+    t.bigint "user_id", null: false
+    t.bigint "bean_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bean_id"], name: "index_beans_comments_on_bean_id"
+    t.index ["user_id"], name: "index_beans_comments_on_user_id"
   end
 
   create_table "shop_comments", force: :cascade do |t|
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(version: 2021_09_20_233908) do
 
   add_foreign_key "beans", "shops"
   add_foreign_key "beans", "users"
+  add_foreign_key "beans_comments", "beans"
+  add_foreign_key "beans_comments", "users"
   add_foreign_key "shop_comments", "shops"
   add_foreign_key "shop_comments", "users"
   add_foreign_key "shops", "users"
