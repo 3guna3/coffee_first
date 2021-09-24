@@ -28,14 +28,15 @@
           <p>評価：<%= c.rate %>点</p>
           <div id="star-rate<%= c.id %>"></div>
           <script>
-            $('#star-rate<%= c.id%>').raty({
-              size      : 36,
-              starOff   : '<%= asset_path('star-off.png') %>',
-              starOn    : '<%= asset_path('star-on.png') %>',
-              half      : false,
-              readOnly: true,
-              score: <%= c.rate %>,
-            });
+            $('#star-rate<%= c.id%>').empty();
+              $('#star-rate<%= c.id%>').raty({
+                size      : 36,
+                starOff   : '<%= asset_path('star-off.png') %>',
+                starOn    : '<%= asset_path('star-on.png') %>',
+                half      : false,
+                readOnly: true,
+                score: <%= c.rate %>,
+              });
           </script>
           <hr>
         </div>
@@ -53,14 +54,15 @@
         <br>
         <%= f.submit "コメントする", class: "btn btn-success" %>
         <script>
-          $('#star').raty({
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
+          $('#star').empty();
+            $('#star').raty({
+              size     : 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
           
-            scoreName: 'shop_comment[rate]',
-            half: false,
-          });
+              scoreName: 'shop_comment[rate]',
+              half: false,
+            });
         </script>
       <% end %>
     </div>
