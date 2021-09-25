@@ -7,7 +7,7 @@ class ShopCommentsController < ApplicationController
     if @shop_comment.save
       redirect_back(fallback_location: root_path, notice: "投稿しました")
     else
-      redirect_back(fallback_location: root_path, alert: { error: @shop_comment.errors.full_messages })
+      redirect_back(fallback_location: root_path, alert: "投稿に失敗しました")
     end
   end
 
