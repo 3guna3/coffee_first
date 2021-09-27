@@ -1,6 +1,7 @@
 class ShopCommentsController < ApplicationController
   before_action :authenticate_user!, { only: [:create, :edit, :update, :destroy] }
   before_action :set_shop_comment, { only: [:edit, :update, :destroy, :show] }
+  before_action :set_shop, { only: [:edit, :update, :destroy] }
 
   def create
     @shop_comment = current_user.shop_comments.new(shop_comment_params)
@@ -15,20 +16,29 @@ class ShopCommentsController < ApplicationController
 
   def update
     @shop_comment.update!(shop_comment_params)
-    redirect_to @shop_comment
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @shop_commnet.destroy!
-    redirect_to root_path
+    if current_user.id == @shop_comment.user.id
+      @shop_comment.destroy!
+      redirect_back(fallback_location: root_path)
+    else
+      render "shops/show"
+    end
   end
 
   def show; end
 
   private
 
+  def set_shop
+    @shop = Shop.find(params[:id])
+    @shop_comment = @shop.shop_comments.find(params[:id])
+  end
+
   def set_shop_comment
-    @shop_comment = Shop_Comment.find(params[:id])
+    @shop_comment = ShopComment.find(params[:id])
   end
 
   def shop_comment_params

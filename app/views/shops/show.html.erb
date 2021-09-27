@@ -38,6 +38,10 @@
                 score: <%= c.rate %>,
               });
           </script>
+          <% if current_user && current_user.id == c.user_id %>
+            <%= link_to "編集", edit_shop_shop_comment_path(c) %>
+            <%= link_to "削除", shop_shop_comment_path(@shop, c), method: :delete, data: { confirm: "削除しますか？" } %>
+          <% end %>
           <hr>
         </div>
       <% end %>

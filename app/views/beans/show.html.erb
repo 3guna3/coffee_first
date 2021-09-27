@@ -74,6 +74,7 @@
       <% end %>
       <h2>コメントする</h2>
       <%= form_for [@bean, @bean_comment] do |f| %>
+        <%= render "beans_error", model: f.object %>
         <div class="form-group">
           <%= f.label :content, "内容"%>
           <%= f.text_field :content %>
