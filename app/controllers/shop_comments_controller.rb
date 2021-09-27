@@ -1,6 +1,5 @@
 class ShopCommentsController < ApplicationController
   before_action :authenticate_user!, { only: [:create, :edit, :update, :destroy] }
-  before_action :set_shop_comment, { only: [:edit, :update, :destroy, :show] }
   before_action :set_shop, { only: [:edit, :update, :destroy] }
 
   def create
@@ -33,12 +32,8 @@ class ShopCommentsController < ApplicationController
   private
 
   def set_shop
-    @shop = Shop.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
     @shop_comment = @shop.shop_comments.find(params[:id])
-  end
-
-  def set_shop_comment
-    @shop_comment = ShopComment.find(params[:id])
   end
 
   def shop_comment_params
