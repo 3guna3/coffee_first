@@ -5,6 +5,8 @@ class CreateBeansComments < ActiveRecord::Migration[6.1]
       t.float :bitterness, null: false
       t.float :acidity, null: false
       t.float :body, null: false
+      t.references :user, null: false, foreign_key: true
+      t.references :bean, null: false, foreign_key: true
 
       t.timestamps
     end

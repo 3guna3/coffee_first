@@ -16,7 +16,10 @@ class BeansController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @bean_comments = @bean.beans_comments
+    @bean_comment = current_user.beans_comments.new
+  end
 
   def index; end
 

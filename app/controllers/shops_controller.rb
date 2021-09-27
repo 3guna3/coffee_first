@@ -30,7 +30,7 @@ class ShopsController < ApplicationController
 
   def show
     @beans = Bean.where(shop_id: @shop.id)
-    @shop_comments = @shop.shop_comments
+    @shop_comments = ShopComment.where(shop_id: @shop.id)
     @shop_comment = current_user.shop_comments.new
     @average_rate = if @shop.shop_comments.blank?
                       0

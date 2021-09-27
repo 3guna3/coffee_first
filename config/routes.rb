@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :shops do
     resources :shop_comments
   end
-  resources :beans
+  resources :beans do
+    resources :beans_comments
+  end
   resources :users, only: [:show, :edit]
 
   devise_scope :user do
