@@ -7,8 +7,7 @@ class BeansCommentsController < ApplicationController
     if @beans_comment.save
       redirect_back(fallback_location: root_path, notice: "投稿しました")
     else
-      flash.now[:alert] = "投稿に失敗しました"
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, alert: "投稿に失敗しました")
     end
   end
 
