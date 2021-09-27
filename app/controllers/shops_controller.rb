@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
-  before_action :set_shop_search_query, { only: [:search] }
+  before_action :set_shop_q, { only: [:index, :search] }
   def index
     @shops = Shop.includes(:user).order(:created_at)
   end
