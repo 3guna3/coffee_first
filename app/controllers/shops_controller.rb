@@ -32,7 +32,7 @@ class ShopsController < ApplicationController
   end
 
   def search
-    @shops = Shop.including.limit(5).desc
+    @result = @q.result
   end
 
   def edit; end
@@ -57,8 +57,7 @@ class ShopsController < ApplicationController
     params.require(:shop).permit(:name, :prefecture, :address, :TEL, :URL, :img, :user_id)
   end
 
-  def set_shop_search_query
+  def set_shop_q
     @q = Shop.ransack(params[:q])
-    @shops = @q.result(distinct: true)
   end
 end
