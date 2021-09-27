@@ -70,6 +70,9 @@
                 });
             </script>
           </p>
+          <% if current_user && current_user.id == c.user_id %>
+            <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :delete, data: { confirm: "削除しますか？" } %>
+          <% end %>
         </div>
       <% end %>
       <h2>コメントする</h2>

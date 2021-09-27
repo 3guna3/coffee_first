@@ -1,6 +1,6 @@
 class BeansCommentsController < ApplicationController
   before_action :authenticate_user!, { only: [:create, :edit, :update, :destroy] }
-  before_action :set_beans_comment, { only: [:edit, :update, :destroy, :show] }
+  before_action :set_beans, { only: [:destroy] }
 
   def create
     @beans_comment = current_user.beans_comments.new(beans_comment_params)
@@ -19,16 +19,21 @@ class BeansCommentsController < ApplicationController
   end
 
   def destroy
-    @beans_commnet.destroy!
-    redirect_to root_path
+    if current_user.id == @beans_comment.user.id
+      @beans_comment.destroy!
+      redirect_back(fallback_location: root_path)
+    else
+      render "beans/show"
+    end
   end
 
   def show; end
 
   private
 
-  def set_beans_comment
-    @beans_comment = Beans_Comment.find(params[:id])
+  def set_beans
+    @bean = Bean.find(params[:bean_id])
+    @beans_comment = @bean.beans_comments.find(params[:id])
   end
 
   def beans_comment_params
