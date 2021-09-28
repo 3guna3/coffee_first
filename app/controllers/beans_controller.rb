@@ -3,6 +3,10 @@ class BeansController < ApplicationController
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
   before_action :set_bean_q, { only: [:index] }
 
+  def index
+    @beans = Bean.includes(:user).order(:created_at)
+  end
+
   def new
     @bean = Bean.new
   end
@@ -21,8 +25,6 @@ class BeansController < ApplicationController
     @bean_comments = @bean.beans_comments
     @bean_comment = current_user.beans_comments.new
   end
-
-  def index; end
 
   def search
     @results = @q.result
