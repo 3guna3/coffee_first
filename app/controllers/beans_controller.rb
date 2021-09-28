@@ -1,7 +1,7 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
-  before_action :set_bean_q, { only: [:index] }
+  before_action :set_bean_q, { only: [:index, :search] }
 
   def index
     @beans = Bean.includes(:user).order(:created_at)

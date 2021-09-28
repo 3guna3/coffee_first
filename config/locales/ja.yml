@@ -3,6 +3,8 @@ ja:
     enums:
       shop:
         prefecture:
+      bean:
+        country:
     models:
       shop: コーヒーショップ
       bean: コーヒー豆

@@ -1,0 +1,15 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <% @results.each do |bean| %>
+      <tr>
+        <td><%= bean.shop.name %></td>
+        <td><%= bean.name %></td>
+        <td><%= bean.country %></td>
+        <td><%= link_to '詳細', bean %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
