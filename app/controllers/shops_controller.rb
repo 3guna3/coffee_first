@@ -32,7 +32,7 @@ class ShopsController < ApplicationController
   end
 
   def search
-    @result = @q.result
+    @results = @q.result
   end
 
   def edit; end
