@@ -24,6 +24,10 @@ class BeansController < ApplicationController
 
   def index; end
 
+  def search
+    @results = @q.result
+  end
+
   def edit; end
 
   def update

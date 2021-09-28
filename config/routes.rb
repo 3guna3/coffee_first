@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :shop_comments
   end
   resources :beans do
+    collection do
+      get "search"
+    end
     resources :beans_comments
   end
   resources :users, only: [:show, :edit]
