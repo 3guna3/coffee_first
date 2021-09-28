@@ -1,13 +1,20 @@
 <h1>検索結果</h1>
 <table>
   <thead>
+    <tr>
+      <th>販売店名</th>
+      <th>コーヒー豆名</th>
+      <th>生産地</th>
+      <th>価格(100g当たり)</th>
+    </tr>
   </thead>
   <tbody>
     <% @results.each do |bean| %>
       <tr>
-        <td><%= bean.shop.name %></td>
+        <td><%= link_to bean.shop.name, shop_path(bean.shop) %></td>
         <td><%= bean.name %></td>
         <td><%= bean.country %></td>
+        <td><span><%= bean.price %>円</span></td>
         <td><%= link_to '詳細', bean %></td>
       </tr>
     <% end %>
