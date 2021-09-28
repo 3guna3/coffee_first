@@ -1,5 +1,8 @@
 ja:
   activerecord:
+    enums:
+      shop:
+        prefecture:
     models:
       shop: コーヒーショップ
       bean: コーヒー豆
