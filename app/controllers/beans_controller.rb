@@ -1,6 +1,7 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
+  before_action :set_bean_q, { only: [:index] }
 
   def new
     @bean = Bean.new
@@ -43,5 +44,9 @@ class BeansController < ApplicationController
 
   def bean_params
     params.require(:bean).permit(:name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id)
+  end
+
+  def set_bean_q
+    @q = Bean.ransack(params[:q])
   end
 end
