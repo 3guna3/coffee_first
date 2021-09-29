@@ -1,9 +1,13 @@
 class ShopsController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
-  before_action :set_shop_q, { only: [:index, :search] }
+  before_action :set_shop_q, { only: [:index] }
   def index
-    @shops = Shop.includes(:user).order(:created_at)
+    if @q.present?
+      @shops = @q.result
+    else
+      Shop.includes(:user).order(:created_at)
+    end
   end
 
   def new
@@ -29,10 +33,6 @@ class ShopsController < ApplicationController
                     else
                       @shop.shop_comments.average(:rate).round(2)
                     end
-  end
-
-  def search
-    @results = @q.result
   end
 
   def edit; end
