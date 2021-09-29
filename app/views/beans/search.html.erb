@@ -2,10 +2,10 @@
 <table>
   <thead>
     <tr>
-      <th>販売店名</th>
-      <th>コーヒー豆名</th>
-      <th>生産地</th>
-      <th>価格(100g当たり)</th>
+      <th><%= sort_link(@q, :shop_name, "販売店名",hide_indicator: true) %></th>
+      <th><%= sort_link(@q, :name, "コーヒー豆名", hide_indicator: true) %></th>
+      <th><%= sort_link(@q, :country, "生産地", hide_indicator: true) %></th>
+      <th><%= sort_link(@q, :price, "価格(100g当たり)", hide_indicator: true) %></th>
     </tr>
   </thead>
   <tbody>
