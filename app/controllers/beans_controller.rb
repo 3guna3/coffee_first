@@ -1,6 +1,16 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
+  before_action :set_bean_q, { only: [:index] }
+
+  def index
+    if params[:q].present?
+      @beans = @q.result
+    else
+      params[:q] = { sorts: "created_at desc" }
+      @beans = Bean.includes(:user).order(:created_at)
+    end
+  end
 
   def new
     @bean = Bean.new
@@ -20,8 +30,6 @@ class BeansController < ApplicationController
     @bean_comments = @bean.beans_comments
     @bean_comment = current_user.beans_comments.new
   end
-
-  def index; end
 
   def edit; end
 
@@ -43,5 +51,9 @@ class BeansController < ApplicationController
 
   def bean_params
     params.require(:bean).permit(:name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id)
+  end
+
+  def set_bean_q
+    @q = Bean.ransack(params[:q])
   end
 end

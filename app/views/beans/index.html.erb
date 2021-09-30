@@ -1,3 +1,11 @@
-<% @beans.each do |bean| %>
-  <p><%= bean.name %></p>
-<% end %>
+<div class=container>
+  <div class="row">
+    <div class="col-md3">
+      <%= render "bean_search_form" %>
+    </div>
+    <div class="col-md9">
+      <h1>コーヒ豆一覧</h1>
+      <%= render @beans %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <p>【コーヒ豆名】 <%= bean.name %></p>
+  <p>【苦味レベル】</p>
+  <div class="average-review-rating" data-score=<%= bean.beans_comments.average(:bitterness) %>></div>
+  <%= render "/layouts/average" %>
+  <p>【酸味レベル】</p>
+  <div class="average-review-rating" data-score=<%= bean.beans_comments.average(:acidity) %>></div>
+  <%= render "/layouts/average"  %>
+  <p>【コクレベル】</p>
+  <div class="average-review-rating" data-score=<%= bean.beans_comments.average(:body) %>></div>
+  <%= render "/layouts/average"  %>
+  <p>
+    <%= link_to "詳細", bean %>
+    <% if current_user && current_user.id == bean.user_id %>
+      <%= link_to "編集", edit_bean_path(bean) %>
+      <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
+    <% end %>
+  </p>
+</div>
