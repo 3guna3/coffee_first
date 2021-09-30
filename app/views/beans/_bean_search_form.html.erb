@@ -1,6 +1,6 @@
 <h1>コーヒー豆検索</h1>
 <div class="form-wrapper">
-  <%= search_form_for @q, url: search_beans_path do |f| %>
+  <%= search_form_for @q, url: beans_path do |f| %>
     <div class=form-group>
       <%= f.label :shop_name_cont, "販売店名" %>
       <%= f.search_field :shop_name_cont, autofocus: true, class: "form-control" %>
