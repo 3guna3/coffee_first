@@ -2,6 +2,7 @@
 <div class="form-wrapper">
   <%= search_form_for @q, url: shops_path do |f| %>
     <div class="form-group">
+      <p>並べ替え</p>
       <%= f.select( :sorts, {"新着順": "created_at desc"}, { selected: params[:q][:sorts] }, class: "form-control") %>
     </div>
     <div class=form-group>
