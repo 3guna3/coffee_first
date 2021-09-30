@@ -3,10 +3,12 @@ class ShopsController < ApplicationController
   before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
   before_action :set_shop_q, { only: [:index] }
   def index
-    if @q.present?
+    if params[:q].present?
+      @q = Shop.ransack(params[:q])
       @shops = @q.result
     else
-      Shop.includes(:user).order(:created_at)
+      params[:q] = { sorts: "created_at desc" }
+      @shops = Shop.includes(:user).order(:created_at)
     end
   end
 
