@@ -10,8 +10,8 @@ class ShopComment < ApplicationRecord
     }
   end
 
-  after_save :update_rate_average
   after_destroy :update_rate_average
+  after_save :update_rate_average
 
   delegate :update_rate_average, to: :shop
 end

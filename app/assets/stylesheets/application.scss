@@ -23,7 +23,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 body {
   min-height: 100vh;
   color: black;
-  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  background-color: moccasin;
   font-family: sans-serif;
 }
 
@@ -47,10 +47,6 @@ body {
 
 .mw-xl {
   max-width: 1200px;
-}
-
-body {
-  padding-top: 70px;
 }
 
 .hamburger-menu {
