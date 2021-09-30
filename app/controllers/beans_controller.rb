@@ -1,10 +1,15 @@
 class BeansController < ApplicationController
   before_action :authenticate_user!, { except: [:index, :show] }
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
-  before_action :set_bean_q, { only: [:index, :search] }
+  before_action :set_bean_q, { only: [:index] }
 
   def index
-    @beans = Bean.includes(:user).order(:created_at)
+    if params[:q].present?
+      @beans = @q.result
+    else
+      params[:q] = { sorts: "created_at desc" }
+      @beans = Bean.includes(:user).order(:created_at)
+    end
   end
 
   def new
@@ -24,10 +29,6 @@ class BeansController < ApplicationController
   def show
     @bean_comments = @bean.beans_comments
     @bean_comment = current_user.beans_comments.new
-  end
-
-  def search
-    @results = @q.result
   end
 
   def edit; end

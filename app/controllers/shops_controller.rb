@@ -4,7 +4,6 @@ class ShopsController < ApplicationController
   before_action :set_shop_q, { only: [:index] }
   def index
     if params[:q].present?
-      @q = Shop.ransack(params[:q])
       @shops = @q.result
     else
       params[:q] = { sorts: "created_at desc" }
