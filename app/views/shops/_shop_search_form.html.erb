@@ -3,7 +3,7 @@
   <%= search_form_for @q, url: shops_path do |f| %>
     <div class="form-group">
       <p>並べ替え</p>
-      <%= f.select( :sorts, {"新着順": "created_at desc"}, { selected: params[:q][:sorts] }, class: "form-control") %>
+      <%= f.select( :sorts, {"新着順": "created_at desc", "評価が高い順": "rate_average desc"}, { selected: params[:q][:sorts] }, class: "form-control") %>
     </div>
     <div class=form-group>
       <%= f.label :name_cont, "店舗名" %>
