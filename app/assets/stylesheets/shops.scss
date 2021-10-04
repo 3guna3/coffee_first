@@ -3,19 +3,29 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .row {
-  margin: 0 -15px;
+  margin: 10px -15px 0 -15px;
   display: flex;
 }
 
 .search-form {
   text-align: center;
-  background-color: brown;
+  margin-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
 }
 
 .shops {
   text-align: center;
-  background-color: cadetblue;
   flex: 1;
+}
+
+.search-button {
+  margin-top: 2rem;
+  background-color: darkorange;
+  border-radius: 10px;
 }
 
 span {

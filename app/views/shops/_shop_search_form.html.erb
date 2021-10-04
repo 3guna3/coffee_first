@@ -1,4 +1,4 @@
-<h1>お店検索</h1>
+<h1 class="title">お店検索</h1>
 <div class="form-wrapper">
   <%= search_form_for @q, url: shops_path do |f| %>
     <div class="form-group">
@@ -17,6 +17,8 @@
       <%= f.label :address_cont, "住所" %>
       <%= f.search_field :address_cont, autofocus: true, class: "form-control" %>
     </div>
-    <%= f.submit "検索", class: "btn btn-info btn-block form-submit-btn" %>
+    <div class="search-button">
+      <%= f.submit "検索", class: "btn btn-block form-submit-btn" %>
+    </div>
   <% end %>
 </div>
