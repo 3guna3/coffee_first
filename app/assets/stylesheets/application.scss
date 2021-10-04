@@ -39,6 +39,8 @@ img {
   padding: 30px 15px;
 }
 
+/* max-width */
+
 .mw-sm {
   max-width: 576px;
 }
@@ -59,7 +61,7 @@ img {
   margin: 0 0 0 auto;
 }
 
-// フラッシュ
+/* フラッシュ */
 
 .alert-notice {
   @extend .alert-success;
@@ -67,4 +69,8 @@ img {
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.nav {
+  background-color: #ff7f50;
 }
