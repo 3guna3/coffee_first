@@ -21,6 +21,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 
 body {
+  padding-top: 20px;
   min-height: 100vh;
   color: 333;
   background-color: moccasin;
@@ -34,9 +35,8 @@ img {
 }
 
 .base-container {
-  @extend .container-fluid;
-  margin: 0 auto;
-  padding: 30px 15px;
+  margin: 70px auto 0 auto;
+  padding: 1rem;
 }
 
 /* max-width */
