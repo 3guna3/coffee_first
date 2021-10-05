@@ -13,6 +13,10 @@
   color: #666;
 }
 
+.form-wrapper {
+  margin: 0 20px;
+}
+
 .title {
   color: #666;
   letter-spacing: 0.3rem;
@@ -46,6 +50,7 @@ span {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  margin: 0 20px;
 }
 
 .shop-image {

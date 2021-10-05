@@ -1,20 +1,23 @@
 <div class="shop">
-  <div class="shop-header">
-    <% if shop.img? %>
-      <img src=<%= shop.img.url %> class="shop-image">
-    <% else %>
-      <img src="assets/default-cafe.jpg" class="shop-image">
-    <% end %>
-  </div>
-  <div class="shop-title">
-    <p><%= shop.name %></p>
-  </div>
+  <a href="/shops/<%= shop.id %>" class="shop-body">
+    <div class="shop-header">
+      <% if shop.img? %>
+        <img src=<%= shop.img.url %> class="shop-image">
+      <% else %>
+        <img src="assets/default-cafe.jpg" class="shop-image">
+      <% end %>
+    </div>
+    <div class="shop-title">
+      <p><%= shop.name %></p>
+    </div>
+  </a>
   <div class="shop-address">
     <p><%= shop.prefecture %><%= shop.address %></p>
   </div>
-  <p>【平均評価】</p>
-  <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
-  <%= render "/layouts/average" %>
+  <div class="shop-rate">
+    <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
+    <%= render "/layouts/average" %>
+  </div>
   <p>
     <%= link_to "詳細", shop %>
     <% if current_user && current_user.id == shop.user_id %>
