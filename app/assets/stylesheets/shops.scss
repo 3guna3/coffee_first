@@ -13,8 +13,10 @@
 }
 
 .title {
+  color: #666;
+  letter-spacing: 0.3rem;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .shops {
@@ -23,9 +25,8 @@
 }
 
 .search-button {
-  margin-top: 2rem;
   background-color: darkorange;
-  border-radius: 10px;
+  margin-top: 2rem;
 }
 
 span {

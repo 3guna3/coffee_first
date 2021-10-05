@@ -1,5 +1,8 @@
 <div>
   <p>【店舗名】 <%= shop.name %></p>
+  <% if shop.img? %>
+    <img src=<%= shop.img.url %> class="icon-image">
+  <% end %>
   <p>【平均評価】</p>
   <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
   <%= render "/layouts/average" %>

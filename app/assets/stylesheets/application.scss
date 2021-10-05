@@ -39,6 +39,28 @@ img {
   padding: 1rem;
 }
 
+.btn {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: white;
+  border-radius: 0.5rem;
+}
+
 /* max-width */
 
 .hamburger-menu {
