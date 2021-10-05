@@ -1,8 +1,17 @@
-<div>
-  <p>【店舗名】 <%= shop.name %></p>
-  <% if shop.img? %>
-    <img src=<%= shop.img.url %> class="icon-image">
-  <% end %>
+<div class="shop">
+  <div class="shop-header">
+    <% if shop.img? %>
+      <img src=<%= shop.img.url %> class="shop-image">
+    <% else %>
+      <img src="assets/default-cafe.jpg" class="shop-image">
+    <% end %>
+  </div>
+  <div class="shop-title">
+    <p><%= shop.name %></p>
+  </div>
+  <div class="shop-address">
+    <p><%= shop.prefecture %><%= shop.address %></p>
+  </div>
   <p>【平均評価】</p>
   <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
   <%= render "/layouts/average" %>
@@ -14,4 +23,3 @@
     <% end %>
   </p>
 </div>
-<hr>
