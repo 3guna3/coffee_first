@@ -85,7 +85,11 @@ span {
   margin: auto auto 1rem auto;
 }
 
-.link-box {
+.search-tag {
+  padding: 6px;
+  border-radius: 10px;
+  background-color: #fa8072;
+  color: #fff;
 }
 
 @media not all and (min-width: 768px) {
