@@ -1,13 +1,13 @@
-<div class="shop">
-  <a href="/shops/<%= shop.id %>" class="shop-body">
-    <div class="shop-header">
+<div class="cards">
+  <a href="/shops/<%= shop.id %>" class="cards-body">
+    <div class="cards-header">
       <% if shop.img? %>
-        <img src=<%= shop.img.url %> class="shop-image">
+        <img src=<%= shop.img.url %> class="cards-image">
       <% else %>
-        <img src="assets/default-cafe.jpg" class="shop-image">
+        <img src="assets/default-cafe.jpg" class="cards-image">
       <% end %>
     </div>
-    <div class="shop-title">
+    <div class="cards-title">
       <p><%= shop.name %></p>
     </div>
   </a>
