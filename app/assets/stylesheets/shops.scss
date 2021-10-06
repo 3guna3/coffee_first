@@ -40,10 +40,12 @@ span {
 }
 
 .shop {
-  padding: 30px;
+  padding: 25px;
   width: calc((100% - 30px * 2) / 3);
   background-color: #fff;
   border-radius: 10px;
+  position: relative;
+  color: #666;
 }
 
 .wrap {
@@ -55,7 +57,7 @@ span {
 
 .shop-image {
   width: 100%;
-  height: 200px;
+  height: auto;
   object-fit: cover;
 }
 
@@ -64,8 +66,26 @@ span {
 }
 
 .shop-title {
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: 500;
+  height: 4rem;
+  text-align: center;
+  color: #666;
+}
+
+.shop-address {
+  height: 3rem;
+  margin: auto;
+  font-weight: 500;
+}
+
+.shop-rate {
+  height: 2rem;
+  margin: auto auto 1rem auto;
+}
+
+.link-box {
 }
 
 @media not all and (min-width: 768px) {
