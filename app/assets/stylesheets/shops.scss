@@ -44,10 +44,10 @@ span {
 .cards {
   padding: 25px;
   width: calc((100% - 30px * 2) / 3);
-  background-color: #fff;
+  background-color: #deb887;
   border-radius: 10px;
   position: relative;
-  color: #666;
+  color: #555;
 }
 
 .wrap {
@@ -73,7 +73,7 @@ span {
   font-weight: 500;
   height: 4rem;
   text-align: center;
-  color: #666;
+  color: #555;
 }
 
 .shop-address {
@@ -136,11 +136,5 @@ span {
 
   .shop-address {
     height: auto;
-  }
-}
-
-@media only screen and (nin-width: 960px) {
-  .search-form {
-    display: flex;
   }
 }

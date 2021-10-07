@@ -28,7 +28,7 @@
     <div class=form-group>
       <%= f.label :price, "価格(100g当たり)", {class: "search-tag"} %>
       <%= f.number_field :price_gteq, class: "form-control", placeholder: "¥ Min" %>
-      <p>〜</p>
+      <p class="price">〜</p>
       <%= f.number_field :price_lteq, class: "form-control", placeholder: "¥ Max" %>
     </div>
     <div class="search-button">
