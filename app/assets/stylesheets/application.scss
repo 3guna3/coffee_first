@@ -70,8 +70,6 @@ a:hover {
   border-radius: 0.5rem;
 }
 
-/* max-width */
-
 .hamburger-menu {
   margin: 0 0 0 auto;
 }
@@ -88,4 +86,15 @@ a:hover {
 
 .nav {
   background-color: #ff7f50;
+}
+
+.registration-form {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 960px) {
+  .registration-form {
+    max-width: 60%;
+    margin: auto;
+  }
 }

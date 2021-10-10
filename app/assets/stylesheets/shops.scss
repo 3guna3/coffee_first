@@ -80,6 +80,7 @@ span {
   height: 3rem;
   margin: auto;
   font-weight: 500;
+  text-decoration: underline double #d2b48c;
 }
 
 .shop-rate {
@@ -122,6 +123,11 @@ span {
   opacity: 1;
   padding: 10px;
   visibility: visible;
+}
+
+.link-box {
+  float: right;
+  padding-top: 1rem;
 }
 
 @media not all and (min-width: 768px) {

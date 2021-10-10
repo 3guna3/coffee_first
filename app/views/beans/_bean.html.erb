@@ -11,30 +11,21 @@
       <P><%= bean.name %></P>
     </div>
   </a>
-  <div class="bean-detail">
-    <div class="row">
-      <div class="col-4 bean-tag">
-        <p>販売店</p>
-        <p>生産地</p>
-        <p>価格(100g)</p>
-      </div>
-      <div class="col-8 bean-inside">
-        <p><a href="/shops/<%= bean.shop_id %>"><%= bean.shop.name %></a></p>
-        <p><%= bean.country %></p>
-        <p><%= bean.price %>円</p>
-      </div>
+  <div class="contents">
+    <div class="underline">
+      <p class="bean-tag">販売店</p>
+      <p class="bean-content"><a href="/shops/<%= bean.shop_id %>"><%= bean.shop.name %></a></p>
     </div>
-    <div class="bean-shop">
-      <p>販売店:  <a href="/shops/<%= bean.shop_id %>"><%= bean.shop.name %></a></p>
+    <div class="underline">
+      <p class="bean-tag">生産地</p>
+      <p class="bean-content"><%= bean.country %></p>
     </div>
-    <div class="bean-country">
-      <p>生産地 ： <%= bean.country %></p>
-    </div>
-    <div class="bean-price">
-      <p>価格(100g)  :  <%= bean.price %>円</p>
+    <div class="underline">
+      <p class="bean-tag">価格(100g)</p>
+      <p class="bean-content"><%= bean.price %>円</p>
     </div>
   </div>
-  <p>
+  <p class="link-box">
     <% if current_user && current_user.id == bean.user_id %>
       <%= link_to "編集", edit_bean_path(bean) %>
       <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
