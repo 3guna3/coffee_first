@@ -2,15 +2,15 @@
   <%= form_with model: @shop, local: true do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class=form-group>
-      <span>※</span><%= f.label :name, "店舗名" %>
+      <span class="essential">※</span><%= f.label :name, "店舗名" %>
       <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "最大50文字", maxlength: 50 %>
     </div>
     <div class=form-group>
-      <span>※</span><%= f.label :prefecture, "都道府県" %>
+      <span class="essential">※</span><%= f.label :prefecture, "都道府県" %>
       <%= f.select :prefecture, Shop.prefectures.keys.map {|k| [k, k]}, {}, {class: "form-control", style: "margin-bottom: 15px;", data: {} } %>
     </div>
     <div class=form-group>
-      <span>※</span><%= f.label :address, "住所" %>
+      <span class="essential">※</span><%= f.label :address, "住所" %>
       <%= f.text_field :address, autofocus: true, class: "form-control" %>
     </div>
     <div class="form-group">

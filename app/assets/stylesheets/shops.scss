@@ -36,7 +36,9 @@
   margin-top: 2rem;
 }
 
-span {
+/* span */
+
+.essential {
   color: red;
   padding-right: 0.5em;
 }
@@ -55,6 +57,13 @@ span {
   flex-wrap: wrap;
   gap: 30px;
   margin: 0 20px;
+}
+
+.shop-picture {
+  padding: 25px;
+  width: calc((100% - 30px * 2) / 3);
+  border-radius: 10px;
+  position: relative;
 }
 
 .cards-image {
@@ -130,6 +139,43 @@ span {
   padding-top: 1rem;
 }
 
+/* show */
+.shop-detail {
+  text-align: center;
+}
+
+.shop-about {
+  background-color: whitesmoke;
+}
+
+.shop-comments {
+  background-color: aqua;
+}
+
+.show {
+  text-align: center;
+}
+
+.shop-star {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.star {
+  margin: auto;
+  background-color: yellowgreen;
+}
+
+.small {
+  background-color: yellow;
+  padding: 0.5rem;
+  font-size: 0.5rem;
+}
+
+.link {
+  text-align: right;
+}
+
 @media not all and (min-width: 768px) {
   .cards {
     width: 100%;
@@ -141,6 +187,11 @@ span {
   }
 
   .shop-address {
+    height: auto;
+  }
+
+  .shop-picture {
+    width: auto;
     height: auto;
   }
 }
