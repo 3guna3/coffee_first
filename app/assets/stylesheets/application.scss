@@ -84,6 +84,13 @@ a:hover {
   @extend .alert-danger;
 }
 
+.alert {
+  color: #fff;
+  background-color: #ff4500;
+  font-size: 1.2rem;
+  margin: auto;
+}
+
 .nav {
   background-color: #ff7f50;
 }
