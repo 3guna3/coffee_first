@@ -145,11 +145,14 @@
 }
 
 .shop-about {
-  background-color: whitesmoke;
 }
 
 .shop-comments {
-  background-color: aqua;
+}
+
+.comments {
+  background-color: #fffff0;
+  border-radius: 0.5rem;
 }
 
 .show {
@@ -167,7 +170,6 @@
 }
 
 .small {
-  background-color: yellow;
   padding: 0.5rem;
   font-size: 0.5rem;
 }

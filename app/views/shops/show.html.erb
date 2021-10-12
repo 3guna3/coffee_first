@@ -1,61 +1,64 @@
 <h1 class="title"><%= @shop.name %></h1>
 <div class=row>
   <div class="col-md-5 shop-picture">
-    <img src=<%= @shop.img.url %> class="cards-image">
+    <img src=<%= @shop.img.url %> class="img-fluid">
   </div>
   <div class="col-md-7 shop-detail">
     <div class="row">
       <div class="col-md-6 shop-about">
         <h2 class="title show">About</h2>
-        <div class="shop-star">
-          <div class="row">
-            <div class="star">
-              <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>>
-              </div>
-              <%= render "/layouts/average" %>
-            </div>
-            <span class="small"><%= @shop.shop_comments.count %> 件の評価</span>
-          </div>
-        </div>
-        <div class="shop-element">
-          <div class="row">
-            <p class="shop-tag">住所</p>
-            <div class="shop-address"><%= @shop.prefecture %><%= @shop.address %></div>
-          </div>
-        </div>
-        <div class="shop-element">
-          <div class="row">
-            <p class="shop-tag">電話番号</p>
-            <% if @shop.TEL? %>
-              <div class="shop-TEL"><%= @shop.TEL %></div>
-            <% end%>
-          </div>
-        </div>
-        <div class="shop-element">
-          <div class="row">
-            <p class="shop-tag">URL</p>
-            <% if @shop.URL? %>
-              <div class="shop-URL"><%= @shop.URL %></div>
-            <% end%>
-          </div>
-        </div>
-        <div class="shop-element">
-          <div class="row">
-            <p class="shop-tag">取扱豆</p>
-          </div>
-          <% @beans.each do |bean| %>
-            <div class="row">
-              <li>
-                <%= bean.name %>
-              </li>
-            </div>
-          <% end %>
-        </div>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th scope="row">平均評価</th>
+              <td>
+                <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>>
+                </div>
+                <%= render "/layouts/average" %>
+              </td>
+              <td>
+                <span class="small"><%= @shop.shop_comments.count %> 件の評価</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">住所</th>
+              <td colspan="2"><%= @shop.prefecture %><%= @shop.address %></td>
+            </tr>
+            <tr>
+              <th scope="row">電話番号</th>
+              <td colspan="2">
+                <% if @shop.TEL? %>
+                  <div class="shop-TEL"><%= @shop.TEL %></div>
+                <% end%>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">URL</th>
+              <td colspan="2">
+                <% if @shop.URL? %>
+                  <div class="shop-URL"><%= text_url_to_link(h(@shop.URL)).html_safe %></div>
+                <% end%>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">取扱豆</th>
+              <td colspan="2">
+                <% @beans.each do |bean| %>
+                  <div class="row">
+                    <li>
+                      <%= bean.name %>
+                    </li>
+                  </div>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="col-md-6 shop-comments">
         <h2 class="title show">Comments</h2>
         <% @shop_comments.each do |c| %>
-          <div>
+          <div class="comments">
             <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
             <%= c.content %>
             <p>評価：<%= c.rate %>点</p>
