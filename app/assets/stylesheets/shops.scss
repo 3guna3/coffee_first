@@ -60,10 +60,10 @@
 }
 
 .shop-picture {
-  padding: 25px;
-  width: calc((100% - 30px * 2) / 3);
-  border-radius: 10px;
-  position: relative;
+  padding: 1.5rem;
+  width: auto;
+  height: auto;
+  object-fit: cover;
 }
 
 .cards-image {
@@ -152,6 +152,7 @@
 
 .comments {
   background-color: #fffff0;
+  color: #736d71;
   border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -181,9 +182,6 @@
 .shop-show {
   width: 100%;
 }
-.registered-user {
-  background-color: brown;
-}
 
 .star-rate {
   padding: 0.5rem;
@@ -192,6 +190,26 @@
 .delete-link {
   padding-right: 1rem;
   float: right;
+}
+
+.icon-image-mini {
+  width: auto;
+  height: auto;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.steel-gray {
+  color: #736d71;
+}
+
+.do-comment {
+  background-color: aqua;
+
+  .content {
+    background-color: #fffff0;
+    padding-top: 1rem;
+  }
 }
 
 @media not all and (min-width: 768px) {
@@ -211,5 +229,11 @@
   .shop-picture {
     width: auto;
     height: auto;
+  }
+}
+
+@media not all and (min-width: 992px) {
+  .shop-about {
+    margin: 2rem 0;
   }
 }
