@@ -62,10 +62,12 @@
             <div class="comments">
               <div class="row">
                 <div class="col-2 registered-user">
-                  <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini"><%= c.user.name %></a>
+                  <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini">
+                    <p><%= c.user.name %></p>
+                  </a>
                 </div>
                 <div class="col-10 comment">
-                  <%= c.content %>
+                  <p><%= c.content %></p>
                   <hr>
                   <div class="rate-star">
                     <div class="row">
@@ -103,7 +105,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">内容</th>
-                    <td><%= f.text_area :content %></td>
+                    <td colspan="2"><%= f.text_area :content %></td>
                   </tr>
                   <tr>
                     <th scope="row">評価</th>
@@ -115,9 +117,15 @@
                       <br>
                     </td>
                   </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="comment-button">
+                        <%= f.submit "コメントする", class: "btn  btn-block form-submit-btn" %>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
-              <%= f.submit "コメントする", class: "btn btn-success" %>
               <script>
                 $('#star').empty();
                   $('#star').raty({
