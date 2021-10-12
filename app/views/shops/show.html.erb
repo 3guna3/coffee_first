@@ -1,109 +1,127 @@
 <h1 class="title"><%= @shop.name %></h1>
-<div class=row>
-  <div class="col-md-5 shop-picture">
-    <img src=<%= @shop.img.url %> class="img-fluid">
-  </div>
-  <div class="col-md-7 shop-detail">
-    <div class="row">
-      <div class="col-md-6 shop-about">
-        <h2 class="title show">About</h2>
-        <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <th scope="row">平均評価</th>
-              <td>
-                <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>>
-                </div>
-                <%= render "/layouts/average" %>
-              </td>
-              <td>
-                <span class="small"><%= @shop.shop_comments.count %> 件の評価</span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">住所</th>
-              <td colspan="2"><%= @shop.prefecture %><%= @shop.address %></td>
-            </tr>
-            <tr>
-              <th scope="row">電話番号</th>
-              <td colspan="2">
-                <% if @shop.TEL? %>
-                  <div class="shop-TEL"><%= @shop.TEL %></div>
-                <% end%>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">URL</th>
-              <td colspan="2">
-                <% if @shop.URL? %>
-                  <div class="shop-URL"><%= text_url_to_link(h(@shop.URL)).html_safe %></div>
-                <% end%>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">取扱豆</th>
-              <td colspan="2">
-                <% @beans.each do |bean| %>
-                  <div class="row">
-                    <li>
-                      <%= bean.name %>
-                    </li>
+<div class="shop-show">
+  <div class=row>
+    <div class="col-lg-5 shop-picture">
+      <img src=<%= @shop.img.url %> class="img-fluid">
+    </div>
+    <div class="col-lg-7 shop-detail">
+      <div class="row">
+        <div class="col-lg-6 shop-about">
+          <h2 class="title show">About</h2>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">平均評価</th>
+                <td>
+                  <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>>
                   </div>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-md-6 shop-comments">
-        <h2 class="title show">Comments</h2>
-        <% @shop_comments.each do |c| %>
-          <div class="comments">
-            <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
-            <%= c.content %>
-            <p>評価：<%= c.rate %>点</p>
-            <div id="star-rate<%= c.id %>"></div>
+                  <%= render "/layouts/average" %>
+                </td>
+                <td>
+                  <span class="small"><%= @shop.shop_comments.count %> 件の評価</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">住所</th>
+                <td colspan="2"><%= @shop.prefecture %><%= @shop.address %></td>
+              </tr>
+              <tr>
+                <th scope="row">電話番号</th>
+                <td colspan="2">
+                  <% if @shop.TEL? %>
+                    <div class="shop-TEL"><%= @shop.TEL %></div>
+                  <% end%>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">URL</th>
+                <td colspan="2">
+                  <% if @shop.URL? %>
+                    <div class="shop-URL"><%= text_url_to_link(h(@shop.URL)).html_safe %></div>
+                  <% end%>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">取扱豆</th>
+                <td colspan="2 bean-name">
+                  <% @beans.each do |bean| %>
+                    <div class="bean-name">
+                      <li>
+                        <a href="/beans/<%= bean.id %>"><%= bean.name %></a>
+                      </li>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-6 shop-comments">
+          <h2 class="title show">Comments</h2>
+          <% @shop_comments.each do |c| %>
+            <div class="comments">
+              <div class="row">
+                <div class="col-sm-4 registered-user">
+                  <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
+                </div>
+                <div class="col-sm-8 comment">
+                  <%= c.content %>
+                  <hr>
+                  <div class="rate-star">
+                    <div class="row">
+                      <div class="col-sm-5 rate">
+                        <p>評価：<%= c.rate %>点</p>
+                      </div>
+                      <div class="col-sm-7 star-rate">
+                        <div id="star-rate<%= c.id %>"></div>
+                        <script>
+                          $('#star-rate<%= c.id%>').empty();
+                            $('#star-rate<%= c.id%>').raty({
+                              size      : 36,
+                              starOff   : '<%= asset_path('star-off.png') %>',
+                              starOn    : '<%= asset_path('star-on.png') %>',
+                              half      : false,
+                              readOnly: true,
+                              score: <%= c.rate %>,
+                            });
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row delete-link">
+                    <% if current_user && current_user.id == c.user_id %>
+                      <%= link_to "削除", shop_shop_comment_path(@shop, c), method: :delete, data: { confirm: "削除しますか？" } %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <%= form_for [@shop, @shop_comment] do |f| %>
+            <div class="form-group">
+              <%= f.label :content, "内容"%>
+              <%= f.text_field :content %>
+            </div>
+            <div class="form-group" id="star">
+              <%= f.label :rate, "評価" %>
+              <%= f.hidden_field :rate, id: :review_star %>
+            </div>
+            <%= f.hidden_field :shop_id, value: @shop.id %>
+            <br>
+            <%= f.submit "コメントする", class: "btn btn-success" %>
             <script>
-              $('#star-rate<%= c.id%>').empty();
-                $('#star-rate<%= c.id%>').raty({
-                  size      : 36,
-                  starOff   : '<%= asset_path('star-off.png') %>',
-                  starOn    : '<%= asset_path('star-on.png') %>',
-                  half      : false,
-                  readOnly: true,
-                  score: <%= c.rate %>,
+              $('#star').empty();
+                $('#star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+              
+                  scoreName: 'shop_comment[rate]',
+                  half: false,
                 });
             </script>
-            <% if current_user && current_user.id == c.user_id %>
-              <%= link_to "削除", shop_shop_comment_path(@shop, c), method: :delete, data: { confirm: "削除しますか？" } %>
-            <% end %>
-            <hr>
-          </div>
-        <% end %>
-        <%= form_for [@shop, @shop_comment] do |f| %>
-          <div class="form-group">
-            <%= f.label :content, "内容"%>
-            <%= f.text_field :content %>
-          </div>
-          <div class="form-group" id="star">
-            <%= f.label :rate, "評価" %>
-            <%= f.hidden_field :rate, id: :review_star %>
-          </div>
-          <%= f.hidden_field :shop_id, value: @shop.id %>
-          <br>
-          <%= f.submit "コメントする", class: "btn btn-success" %>
-          <script>
-            $('#star').empty();
-              $('#star').raty({
-                size     : 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-            
-                scoreName: 'shop_comment[rate]',
-                half: false,
-              });
-          </script>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
