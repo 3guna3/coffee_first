@@ -24,4 +24,6 @@ class Bean < ApplicationRecord
     ミャンマー: 70, メキシコ: 71, モザンビーク: 72, ラオス: 73, リベリア: 74, ルワンダ: 75,
     その他: 76
   }
+
+  mount_uploader :img, ImgUploader
 end

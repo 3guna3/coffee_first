@@ -24,4 +24,6 @@ class Shop < ApplicationRecord
     shop_comments_average = shop_comments.average(:rate)
     update(rate_average: shop_comments_average)
   end
+
+  mount_uploader :img, ImgUploader
 end

@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :authenticate_user!, { except: [:index, :show] }
+  before_action :authenticate_user!, { except: [:index] }
   before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
   before_action :set_shop_q, { only: [:index] }
   def index
@@ -27,7 +27,7 @@ class ShopsController < ApplicationController
 
   def show
     @beans = Bean.where(shop_id: @shop.id)
-    @shop_comments = ShopComment.where(shop_id: @shop.id)
+    @shop_comments = @shop.shop_comments
     @shop_comment = current_user.shop_comments.new
     @average_rate = if @shop.shop_comments.blank?
                       0

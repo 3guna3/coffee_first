@@ -1,6 +1,6 @@
-<nav class="nav navbar-expand-md navbar-dark bg-secondary fixed-top">
+<nav class="nav navbar-expand-md navbar-dark fixed-top ">
   <div class="navbar-brand">
-    <h1 class="text-4xl font-semibold md:text-xl"><%= link_to "Cofee First", root_path, class: "btn btn-secondary btn-lg"  %></h1>
+    <h1 class="text-4xl font-semibold md:text-xl"><%= link_to "Cofee First", root_path, class: "btn btn-lg"  %></h1>
   </div>
   <button class="navbar-toggler hamburger-menu" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,15 +23,6 @@
         <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
           <%= link_to "お店を登録", new_shop_path, class: "dropdown-item" %>
           <%= link_to "豆を登録", new_bean_path, class: "dropdown-item" %>
-        </div>
-      </li>
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          編集
-        </a>
-        <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
-          <%= link_to "お店を編集", shops_path , class: "dropdown-item" %>
-          <%= link_to "豆を編集", beans_path, class: "dropdown-item" %>
         </div>
       </li>
       <% if user_signed_in? %>

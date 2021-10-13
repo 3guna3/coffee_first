@@ -21,43 +21,66 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 
 body {
+  padding-top: 20px;
   min-height: 100vh;
-  color: black;
-  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-  font-family: sans-serif;
+  color: #555;
+  background-color: moccasin;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.table {
+  border-radius: 0.5rem;
+  color: #736d71;
+  background-color: #fffff0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #736d71;
+}
+
+a:hover {
+  color: #999;
 }
 
 .base-container {
-  @extend .container-fluid;
-  margin: 0 auto;
-  padding: 30px 15px;
+  margin: 70px auto 0 auto;
+  padding: 1rem;
 }
 
-.mw-sm {
-  max-width: 576px;
-}
-
-.mw-md {
-  max-width: 768px;
-}
-
-.mw-lg {
-  max-width: 992px;
-}
-
-.mw-xl {
-  max-width: 1200px;
-}
-
-body {
-  padding-top: 70px;
+.btn {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: white;
+  border-radius: 0.5rem;
 }
 
 .hamburger-menu {
   margin: 0 0 0 auto;
 }
 
-// フラッシュ
+/* フラッシュ */
 
 .alert-notice {
   @extend .alert-success;
@@ -65,4 +88,26 @@ body {
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+.alert {
+  color: #fff;
+  background-color: #ff4500;
+  font-size: 1.2rem;
+  margin: auto;
+}
+
+.nav {
+  background-color: #ff7f50;
+}
+
+.registration-form {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 960px) {
+  .registration-form {
+    max-width: 60%;
+    margin: auto;
+  }
 }

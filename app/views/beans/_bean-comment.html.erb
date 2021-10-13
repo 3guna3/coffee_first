@@ -1,0 +1,78 @@
+<%= form_for [@bean, @bean_comment] do |f| %>
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <th scope="row">内容</th>
+        <td colspan="2"><%= f.text_area :content %></td>
+      </tr>
+      <tr>
+        <th scope="row">苦味</th>
+        <td>
+          <div class="form-group" id="bitterness">
+            <%= f.label :bitterness, "苦味" %>
+            <%= f.hidden_field :bitterness, id: :review_star %>
+          </div>
+          <script>
+            $('#bitterness').empty();
+              $('#bitterness').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+            
+                scoreName: 'beans_comment[bitterness]',
+                half: false,
+              });
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">酸味</th>
+        <td>
+          <div class="form-group" id="acidity">
+            <%= f.label :acidity, "酸味" %>
+            <%= f.hidden_field :acidity, id: :review_star %>
+          </div>
+          <script>
+            $('#acidity').empty();
+              $('#acidity').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+            
+                scoreName: 'beans_comment[acidity]',
+                half: false,
+              });
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">コク</th>
+        <td>
+          <div class="form-group" id="body">
+            <%= f.label :body, "コク" %>
+            <%= f.hidden_field :body, id: :review_star %>
+          </div>
+          <script>
+            $('#body').empty();
+              $('#body').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+            
+                scoreName: 'beans_comment[body]',
+                half: false,
+              });
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <%= f.hidden_field :bean_id, value: @bean.id %>
+        <td colspan="2">
+          <div class="comment-button">
+            <%= f.submit "コメントする", class: "btn  btn-block form-submit-btn" %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -14,7 +14,8 @@
     </header>
     <main>
       <%= render "layouts/flash" %>
-      <div class="base-container <%= max_width %>">
+      <p class="alert"><%= alert %></p>
+      <div class="base-container">
         <%= yield %>
       </div>
     </main>

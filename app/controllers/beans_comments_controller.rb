@@ -1,5 +1,5 @@
 class BeansCommentsController < ApplicationController
-  before_action :authenticate_user!, { only: [:create, :edit, :update, :destroy] }
+  before_action :authenticate_user!, { only: [:create, :destroy] }
   before_action :set_beans, { only: [:destroy] }
 
   def create
@@ -11,13 +11,6 @@ class BeansCommentsController < ApplicationController
     end
   end
 
-  def edit; end
-
-  def update
-    @beans_comment.update!(beans_comment_params)
-    redirect_to @beans_comment
-  end
-
   def destroy
     if current_user.id == @beans_comment.user.id
       @beans_comment.destroy!
@@ -26,8 +19,6 @@ class BeansCommentsController < ApplicationController
       render "beans/show"
     end
   end
-
-  def show; end
 
   private
 
