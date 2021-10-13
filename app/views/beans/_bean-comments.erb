@@ -1,8 +1,8 @@
-<%= @bean_comments.each do |c| %>
+<% @bean_comments.each do |c| %>
   <div class="comments">
     <div class="row">
       <div class="col-2 registered-user">
-        <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini" alt="ユーザーイメージ">
+        <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini">
           <p><%= c.user.name %></p>
         </a>
       </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="row delete-link">
           <% if current_user && current_user.id == c.user_id %>
-            <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :dlete, data: { confirm: "削除しますか?" } %>
+            <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :delete, data: { confirm: "削除しますか？" } %>
           <% end %>
         </div>
       </div>
