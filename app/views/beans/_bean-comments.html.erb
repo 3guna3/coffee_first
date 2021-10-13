@@ -1,0 +1,84 @@
+<%= @bean_comments.each do |c| %>
+  <div class="comments">
+    <div class="row">
+      <div class="col-2 registered-user">
+        <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini" alt="ユーザーイメージ">
+          <p><%= c.user.name %></p>
+        </a>
+      </div>
+      <div class="col-10 comment">
+        <p><%= c.content %></p>
+        <hr>
+        <div class="rate-star">
+          <div class="row">
+            <div class="col-5 rate">
+              <p>苦味</p>
+            </div>
+            <div class="col-7 star-rate">
+              <div id="bitterness<%= c.id %>"></div>
+              <script>
+                $('#bitterness<%= c.id%>').empty();
+                  $('#bitterness<%= c.id%>').raty({
+                    size      : 36,
+                    starOff   : '<%= asset_path('star-off.png') %>',
+                    starOn    : '<%= asset_path('star-on.png') %>',
+                    half      : false,
+                    readOnly: true,
+                    score: <%= c.bitterness %>,
+                  });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="rate-star">
+          <div class="row">
+            <div class="col-5 rate">
+              <p>酸味</p>
+            </div>
+            <div class="col-7 star-rate">
+              <div id="acidity<%= c.id %>"></div>
+              <script>
+                $('#acidity<%= c.id%>').empty();
+                  $('#acidity<%= c.id%>').raty({
+                    size      : 36,
+                    starOff   : '<%= asset_path('star-off.png') %>',
+                    starOn    : '<%= asset_path('star-on.png') %>',
+                    half      : false,
+                    readOnly: true,
+                    score: <%= c.acidity %>,
+                  });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="rate-star">
+          <div class="row">
+            <div class="col-5 rate">
+              <p>コク</p>
+            </div>
+            <div class="col-7 star-rate">
+              <div id="body<%= c.id %>"></div>
+              <script>
+                $('#body<%= c.id%>').empty();
+                  $('#body<%= c.id%>').raty({
+                    size      : 36,
+                    starOff   : '<%= asset_path('star-off.png') %>',
+                    starOn    : '<%= asset_path('star-on.png') %>',
+                    half      : false,
+                    readOnly: true,
+                    score: <%= c.body %>,
+                  });
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="row delete-link">
+          <% if current_user && current_user.id == c.user_id %>
+            <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :dlete, data: { confirm: "削除しますか?" } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>aaaaa</p>
+<% end %>
