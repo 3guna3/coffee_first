@@ -6,9 +6,9 @@
     </div>
     <div class="col-xl-8 shop-detail">
       <div class="row">
-        <div class="col-lg shop-about">
+        <div class="col-lg-6 shop-about">
           <h2 class="title show">About</h2>
-          <table>
+          <table class="table table-borderless">
             <tbody>
               <tr>
                 <th scope="row">苦味レベル</th>
@@ -31,6 +31,32 @@
                   <%= render "/layouts/average"  %>
                 </td>
               </tr>
+              <tr>
+                <th scope="row">販売店名</th>
+                <td>
+                  <a class="steel-gray" href="/shops/<%= @bean.shop.id %>"><%= @bean.shop.name %></a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">価格(100g)</th>
+                <td colspan="2"><%= @bean.price %><span>円</span></td>
+              </tr>
+              <tr>
+                <th scope="row">産地</th>
+                <td colspan="2"><%= @bean.country %></td>
+              </tr>
+              <% if @bean.farm.present? %>
+                <tr>
+                  <th scope="row">農園</th>
+                  <td><%= @bean.farm %></td>
+                </tr>
+              <% end %>
+              <% if @bean.variety.present? %>
+                <tr>
+                  <th scope="row">品種</th>
+                  <td><%= @bean.variety %></td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -38,142 +64,119 @@
     </div>
   </div>
 </div>
-<div class=row>
-  <div class="col-md6 col-md-offset-3 form-wrapper">
-    <p>【コヒー豆名】<%= @bean.name %></p>
-    <p>【販売店名】<%= @bean.shop.name %></p>
-    <p>【価格 (100g当たり) 】<%= @bean.price %>円</p>
-    <p>【産地】<%= @bean.country %></p>
-    <% if @bean.farm.present? %>
-      <p>【農園】<%= @bean.farm %></p>
-    <% end %>
-    <% if @bean.variety.present? %>
-      <p>【品種】<%= @bean.variety %></p>
-    <% end %>
-    <p>【平均評価】</p>
-    <span><%= @bean.beans_comments.count %> 件の評価</span>
-    <p>【苦味レベル】</p>
-    <div class="average-review-rating" data-score=<%= @bean_comments.average(:bitterness) %>></div>
-    <%= render "/layouts/average" %>
-    <p>【酸味レベル】</p>
-    <div class="average-review-rating" data-score=<%= @bean_comments.average(:acidity) %>></div>
-    <%= render "/layouts/average"  %>
-    <p>【コクレベル】</p>
-    <div class="average-review-rating" data-score=<%= @bean_comments.average(:body) %>></div>
-    <%= render "/layouts/average"  %>
-    <h2>コメント一覧</h2>
-    <% @bean_comments.each do |c| %>
-      <div>
-        <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
-        <%= c.content %>
-        <p>苦味
-          <div id="bitterness<%= c.id %>">
-            <script>
-              $('#bitterness<%= c.id%>').empty();
-                $('#bitterness<%= c.id%>').raty({
-                  size      : 36,
-                  starOff   : '<%= asset_path('star-off.png') %>',
-                  starOn    : '<%= asset_path('star-on.png') %>',
-                  half      : false,
-                  readOnly: true,
-                  score: <%= c.bitterness %>,
-                });
-            </script>
-          </div>
-        </p>
-        <p>酸味
-          <div id="acidity<%= c.id %>"></div>
-          <script>
-            $('#acidity<%= c.id%>').empty();
-              $('#acidity<%= c.id%>').raty({
-                size      : 36,
-                starOff   : '<%= asset_path('star-off.png') %>',
-                starOn    : '<%= asset_path('star-on.png') %>',
-                half      : false,
-                readOnly: true,
-                score: <%= c.acidity %>,
-              });
-          </script>
-        </p>
-        <p>コク
-          <div id="body<%= c.id %>"></div>
-          <script>
-            $('#body<%= c.id%>').empty();
-              $('#body<%= c.id%>').raty({
-                size      : 36,
-                starOff   : '<%= asset_path('star-off.png') %>',
-                starOn    : '<%= asset_path('star-on.png') %>',
-                half      : false,
-                readOnly: true,
-                score: <%= c.body %>,
-              });
-          </script>
-        </p>
-        <% if current_user && current_user.id == c.user_id %>
-          <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :delete, data: { confirm: "削除しますか？" } %>
-        <% end %>
+<h2>コメント一覧</h2>
+<% @bean_comments.each do |c| %>
+  <div>
+    <a href="/users/<%= c.user.id %>"><%= c.user.name %></a>
+    <%= c.content %>
+    <p>苦味
+      <div id="bitterness<%= c.id %>">
+        <script>
+          $('#bitterness<%= c.id%>').empty();
+            $('#bitterness<%= c.id%>').raty({
+              size      : 36,
+              starOff   : '<%= asset_path('star-off.png') %>',
+              starOn    : '<%= asset_path('star-on.png') %>',
+              half      : false,
+              readOnly: true,
+              score: <%= c.bitterness %>,
+            });
+        </script>
       </div>
-    <% end %>
-    <h2>コメントする</h2>
-    <%= form_for [@bean, @bean_comment] do |f| %>
-      <div class="form-group">
-        <%= f.label :content, "内容"%>
-        <%= f.text_field :content %>
-      </div>
-      <p>苦味
-        <div class="form-group" id="bitterness">
-          <%= f.label :bitterness, "苦味" %>
-          <%= f.hidden_field :bitterness, id: :review_star %>
-        </div>
-        <script>
-          $('#bitterness').empty();
-            $('#bitterness').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-          
-              scoreName: 'beans_comment[bitterness]',
-              half: false,
-            });
-        </script>
-      </p>
-      <p>酸味
-        <div class="form-group" id="acidity">
-          <%= f.label :acidity, "酸味" %>
-          <%= f.hidden_field :acidity, id: :review_star %>
-        </div>
-        <script>
-          $('#acidity').empty();
-            $('#acidity').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-          
-              scoreName: 'beans_comment[acidity]',
-              half: false,
-            });
-        </script>
-      </p>
-      <p>コク
-        <div class="form-group" id="body">
-          <%= f.label :body, "コク" %>
-          <%= f.hidden_field :body, id: :review_star %>
-        </div>
-        <script>
-          $('#body').empty();
-            $('#body').raty({
-              size     : 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-          
-              scoreName: 'beans_comment[body]',
-              half: false,
-            });
-        </script>
-      </p>
-      <%= f.hidden_field :bean_id, value: @bean.id %>
-      <br>
-      <%= f.submit "コメントする", class: "btn btn-success" %>
+    </p>
+    <p>酸味
+      <div id="acidity<%= c.id %>"></div>
+      <script>
+        $('#acidity<%= c.id%>').empty();
+          $('#acidity<%= c.id%>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            half      : false,
+            readOnly: true,
+            score: <%= c.acidity %>,
+          });
+      </script>
+    </p>
+    <p>コク
+      <div id="body<%= c.id %>"></div>
+      <script>
+        $('#body<%= c.id%>').empty();
+          $('#body<%= c.id%>').raty({
+            size      : 36,
+            starOff   : '<%= asset_path('star-off.png') %>',
+            starOn    : '<%= asset_path('star-on.png') %>',
+            half      : false,
+            readOnly: true,
+            score: <%= c.body %>,
+          });
+      </script>
+    </p>
+    <% if current_user && current_user.id == c.user_id %>
+      <%= link_to "削除", bean_beans_comment_path(@bean, c), method: :delete, data: { confirm: "削除しますか？" } %>
     <% end %>
   </div>
+<% end %>
+<h2>コメントする</h2>
+<%= form_for [@bean, @bean_comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :content, "内容"%>
+    <%= f.text_field :content %>
+  </div>
+  <p>苦味
+    <div class="form-group" id="bitterness">
+      <%= f.label :bitterness, "苦味" %>
+      <%= f.hidden_field :bitterness, id: :review_star %>
+    </div>
+    <script>
+      $('#bitterness').empty();
+        $('#bitterness').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+      
+          scoreName: 'beans_comment[bitterness]',
+          half: false,
+        });
+    </script>
+  </p>
+  <p>酸味
+    <div class="form-group" id="acidity">
+      <%= f.label :acidity, "酸味" %>
+      <%= f.hidden_field :acidity, id: :review_star %>
+    </div>
+    <script>
+      $('#acidity').empty();
+        $('#acidity').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+      
+          scoreName: 'beans_comment[acidity]',
+          half: false,
+        });
+    </script>
+  </p>
+  <p>コク
+    <div class="form-group" id="body">
+      <%= f.label :body, "コク" %>
+      <%= f.hidden_field :body, id: :review_star %>
+    </div>
+    <script>
+      $('#body').empty();
+        $('#body').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+      
+          scoreName: 'beans_comment[body]',
+          half: false,
+        });
+    </script>
+  </p>
+  <%= f.hidden_field :bean_id, value: @bean.id %>
+  <br>
+  <%= f.submit "コメントする", class: "btn btn-success" %>
+<% end %>
+</div>
 </div>
