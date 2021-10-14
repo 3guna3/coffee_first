@@ -104,28 +104,32 @@ a:hover {
 
 /* トップページ */
 
-.masthead {
+header {
+  display: block;
+}
+
+header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
-  color: #fff;
-  background-image: image-url('header-bg.jpg');
+  color: #ffedcd;
+  background-image: image-url('default-beans.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
-  width: 100%;
   .masthead-subheading {
+    font-weight: 600;
     font-size: 1.5rem;
-    font-style: italic;
     line-height: 1.5rem;
     margin-bottom: 25px;
     font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
       sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
   .masthead-heading {
-    font-size: 3.25rem;
+    font-size: 4rem;
     font-weight: 700;
+    letter-spacing: 0.3rem;
     line-height: 3.25rem;
     margin-bottom: 2rem;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
