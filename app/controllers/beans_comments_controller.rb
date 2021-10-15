@@ -2,6 +2,8 @@ class BeansCommentsController < ApplicationController
   before_action :authenticate_user!, { only: [:create, :destroy] }
   before_action :set_beans, { only: [:destroy] }
 
+  def index; end
+
   def create
     @beans_comment = current_user.beans_comments.new(beans_comment_params)
     if @beans_comment.save

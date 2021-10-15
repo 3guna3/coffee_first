@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   get "users/:id/profile", to: "users#show", as: "user_profile"
-  root "shops#index"
+  root "beans_comments#index"
   resources :shops do
     resources :shop_comments
   end
