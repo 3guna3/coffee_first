@@ -1,7 +1,6 @@
 // Place all the styles related to the shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 .row {
   margin: 10px -15px 0 -15px;
 }
@@ -145,6 +144,7 @@
 }
 
 /* show */
+
 .shop-detail {
   text-align: center;
 }
@@ -228,16 +228,13 @@
   .cards {
     width: 100%;
   }
-
   .cards-title {
     font-weight: 600;
     height: auto;
   }
-
   .shop-address {
     height: auto;
   }
-
   .shop-picture {
     width: auto;
     height: auto;
