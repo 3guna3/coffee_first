@@ -42,6 +42,11 @@ h1 {
   min-height: 10px;
 }
 
+.card-image {
+  width: 103%;
+  height: 180px;
+}
+
 @media only screen and (min-width: 960px) {
   .login {
     max-width: 60%;
