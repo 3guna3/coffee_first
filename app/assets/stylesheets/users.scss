@@ -42,9 +42,13 @@ h1 {
   min-height: 10px;
 }
 
-.card-image {
-  width: 103%;
-  height: 180px;
+.bg-lemon {
+  background-color: #fffff0;
+}
+
+.bg-orange {
+  background-color: #ff8c00;
+  color: #fff;
 }
 
 @media only screen and (min-width: 960px) {

@@ -216,14 +216,6 @@
   width: auto;
 }
 
-.do-comment {
-  background-color: aqua;
-  .content {
-    background-color: #fffff0;
-    padding-top: 1rem;
-  }
-}
-
 @media not all and (min-width: 768px) {
   .cards {
     width: 100%;
