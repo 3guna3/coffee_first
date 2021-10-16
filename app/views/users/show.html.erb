@@ -23,7 +23,7 @@
         <% @shops.each do |shop| %>
           <div class="card mb-4 rounded">
             <div class="card-body bg-lemon">
-              <h5 class="card-title"><%= shop.name %></h5>
+              <h5 class="card-title"><a href="/shops/<%= shop.id %>"><%= shop.name %></a></h5>
               <table class="table">
                 <tbody>
                   <tr>
