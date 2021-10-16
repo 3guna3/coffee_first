@@ -5,14 +5,7 @@
     </div>
     <div class="col-md-6 text-center">
       <h1 class="title"><%= @user.name %></h1>
-      <table class="table table-borderless">
-        <tr>
-          <th scope="row">Introduce</th>
-          <td>
-            <%= @user.self_introduction %>
-          </td>
-        </tr>
-      </table>
+      <h6 class="introduction steel-gray bg-lemon"><%= @user.self_introduction %></h6>
     </div>
   </div>
   <div class="row">

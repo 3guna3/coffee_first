@@ -51,6 +51,14 @@ h1 {
   color: #fff;
 }
 
+.introduction {
+  display: inline-block;
+  word-break: break-all;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  letter-spacing: 0.1rem;
+}
+
 @media only screen and (min-width: 960px) {
   .login {
     max-width: 60%;
