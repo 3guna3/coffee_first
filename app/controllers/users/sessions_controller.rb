@@ -25,5 +25,10 @@ module Users
     # def configure_sign_in_params
     #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
     # end
+
+    def guest_sign_in
+      sign_in User.guest
+      redirect_to "shops#index", notice: "ゲストユーザーとしてログインしました"
+    end
   end
 end
