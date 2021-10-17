@@ -17,6 +17,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = current_user.shops.new(shop_params)
+    @shop.img = "default.cafe.jpg"
     if @shop.save
       redirect_to root_path, notice: "登録しました"
     else
