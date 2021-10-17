@@ -38,7 +38,11 @@
         <%= f.submit "変更する", class: "btn btn-block form-submit-btn" %>
       </div>
       <div class="login-button">
-        <%= link_to  "マイページへ", user_path(current_user), class: "btn btn-link btn-block" %></div>
+        <%= link_to  "マイページへ", user_path(current_user), class: "btn btn-block" %>
+      </div>
+      <div class="delete-button">
+        <%= link_to "アカウント削除", user_registration_path(current_user), method: :delete, data: { confirm: "削除しますか？" } %>
+      </div>
     </div>
   <% end %>
 </div>

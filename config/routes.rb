@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  root "beans_comments#index"
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
   get "users/:id/profile", to: "users#show", as: "user_profile"
-  root "beans_comments#index"
   resources :shops do
     resources :shop_comments
   end

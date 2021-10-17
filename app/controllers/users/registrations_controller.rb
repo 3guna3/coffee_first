@@ -2,6 +2,7 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    before_action :ensure_normal_user, only: :destroy
     # before_action :configure_sign_up_params, only: [:create]
     # before_action :configure_account_update_params, only: [:update]
 
@@ -62,6 +63,10 @@ module Users
 
     def after_update_path_for(_resource)
       user_path(id: current_user.id)
+    end
+
+    def ensure_normal_user
+      redirect_to root_path, alert: "ゲストユーザーは削除できません" if resource.email == "guest@example.com"
     end
   end
 end
