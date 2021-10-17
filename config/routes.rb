@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit]
 
   devise_scope :user do
-    get "/users/sign_out" => "devise/sessions#destroy"
+    get "users/sign_out" => "devise/sessions#destroy"
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 end
