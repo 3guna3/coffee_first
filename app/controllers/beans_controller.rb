@@ -5,7 +5,7 @@ class BeansController < ApplicationController
 
   def index
     if params[:q].present?
-      @beans = @q.result
+      @beans = @q.result.limit(9)
     else
       params[:q] = { sorts: "created_at desc" }
       @beans = Bean.includes(:user).order(:created_at)

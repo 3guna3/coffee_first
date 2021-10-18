@@ -44,6 +44,7 @@ group :development, :test do
   gem "rspec", ">= 3.0.0"
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  gem "kaminari"
 end
 
 group :development do

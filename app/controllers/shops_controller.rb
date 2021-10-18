@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   before_action :set_shop_q, { only: [:index] }
   def index
     if params[:q].present?
-      @shops = @q.result
+      @shops = @q.result.limit(9)
     else
       params[:q] = { sorts: "created_at desc" }
       @shops = Shop.includes(:user).order(:created_at)
