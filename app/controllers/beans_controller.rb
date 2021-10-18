@@ -5,10 +5,10 @@ class BeansController < ApplicationController
 
   def index
     if params[:q].present?
-      @beans = @q.result.limit(9)
+      @beans = @q.result.page(params[:page]).per(PER_PAGE)
     else
       params[:q] = { sorts: "created_at desc" }
-      @beans = Bean.includes(:user).order(:created_at)
+      @beans = Bean.includes(:user).order(:created_at).page(params[:page]).per(PER_PAGE)
     end
   end
 
