@@ -20,7 +20,10 @@
         <div class="login-button">
           <%= f.submit "ログイン", class: "btn btn-block form-submit-btn" %>
         </div>
-        <div class="search-button">
+        <div class="guest-login-button mt-5">
+          <%= f.submit "ゲストログイン", class: "btn btn-block" %>
+        </div>
+        <div class="search-button mt-3">
           <%= link_to "新規登録", new_user_registration_path, class: "btn btn-block" %>
         </div>
       <% end %>
