@@ -41,7 +41,7 @@
         <%= link_to  "マイページへ", user_path(current_user), class: "btn btn-block" %>
       </div>
       <div class="delete-button">
-        <%= link_to "アカウント削除", user_registration_path(current_user), method: :delete, data: { confirm: "削除しますか？" } %>
+        <%= link_to "アカウント削除", user_registration_path(current_user), method: :delete, data: { confirm: "削除しますか？" }, class: "btn-sm btn-block" %>
       </div>
     </div>
   <% end %>
