@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle float-left" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           検索
         </a>
         <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
@@ -17,7 +17,7 @@
         </div>
       </li>
       <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle float-left" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           登録
         </a>
         <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
@@ -27,7 +27,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle float-left" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.name %>
           </a>
           <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
@@ -37,11 +37,11 @@
             <% end %>
           </div>
         </li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "nav-item nav-link active" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "nav-item nav-link active text-left" %>
       <% else %>
-        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
-        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
-        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active text-left" %>
+        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active text-left" %>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active text-left" %>
       <% end %>
     </ul>
   </div>

@@ -23,10 +23,16 @@ h1 {
   margin: 10px 0 30px;
 }
 
+.guest-login-button {
+  text-align: center;
+  background-color: #79c06e;
+  border-radius: 0.5rem;
+}
+
 .login-button {
   text-align: center;
   background-color: #fa8072;
-  margin-top: 2rem;
+  border-radius: 0.5rem;
 }
 
 .delete-button {
