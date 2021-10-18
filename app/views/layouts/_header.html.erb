@@ -32,13 +32,16 @@
           </a>
           <div class="dropdown-menu" aria-labelladby="navbarDropdownMenuLink">
             <%= link_to "アカウント詳細", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item" %>
+            <% if current_user.email != "guest@example.com" %>
+              <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item" %>
+            <% end %>
           </div>
         </li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "nav-item nav-link active" %>
       <% else %>
         <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
         <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
       <% end %>
     </ul>
   </div>
