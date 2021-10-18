@@ -2,12 +2,15 @@ class ShopsController < ApplicationController
   before_action :authenticate_user!, { except: [:index] }
   before_action :set_shop, { only: [:show, :edit, :update, :destroy] }
   before_action :set_shop_q, { only: [:index] }
+
+  PER_PAGE = 9
+
   def index
     if params[:q].present?
-      @shops = @q.result
+      @shops = @q.result.page(params[:page]).per(PER_PAGE)
     else
       params[:q] = { sorts: "created_at desc" }
-      @shops = Shop.includes(:user).order(:created_at)
+      @shops = Shop.includes(:user).order(:created_at).page(params[:page]).per(PER_PAGE)
     end
   end
 

@@ -3,12 +3,14 @@ class BeansController < ApplicationController
   before_action :set_bean, { only: [:show, :edit, :update, :destroy] }
   before_action :set_bean_q, { only: [:index] }
 
+  PER_PAGE = 9
+
   def index
     if params[:q].present?
-      @beans = @q.result
+      @beans = @q.result.page(params[:page]).per(PER_PAGE)
     else
       params[:q] = { sorts: "created_at desc" }
-      @beans = Bean.includes(:user).order(:created_at)
+      @beans = Bean.includes(:user).order(:created_at).page(params[:page]).per(PER_PAGE)
     end
   end
 
