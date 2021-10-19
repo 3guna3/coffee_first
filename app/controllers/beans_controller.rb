@@ -37,7 +37,7 @@ class BeansController < ApplicationController
 
   def update
     @bean.update!(bean_params)
-    redirect_to @bean
+    redirect_to @bean, notice: "コーヒー豆の情報を更新しました"
   end
 
   def destroy
