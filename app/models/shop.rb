@@ -21,8 +21,12 @@ class Shop < ApplicationRecord
   }
 
   def update_rate_average
-    shop_comments_average = shop_comments.average(:rate)
-    update(rate_average: shop_comments_average)
+    if shop_comments.present?
+      shop_comments_average = shop_comments.average(:rate)
+      update(rate_average: shop_comments_average)
+    else
+      update(rate_average: 0.0)
+    end
   end
 
   mount_uploader :img, ImgUploader
