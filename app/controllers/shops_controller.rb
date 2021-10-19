@@ -45,7 +45,7 @@ class ShopsController < ApplicationController
 
   def update
     @shop.update!(shop_params)
-    redirect_to @shop
+    redirect_to @shop, notice: "店舗情報を更新しました"
   end
 
   def destroy
