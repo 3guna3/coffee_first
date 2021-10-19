@@ -22,8 +22,9 @@ class ShopsController < ApplicationController
     @shop = current_user.shops.new(shop_params)
     @shop.img = "default.cafe.jpg"
     if @shop.save
-      redirect_to root_path, notice: "登録しました"
+
     else
+      redirect_to shops_path, notice: "登録しました"
       flash.now[:alert] = "登録に失敗しました"
       render :new
     end
@@ -49,7 +50,7 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop.destroy!
-    redirect_to root_path
+    redirect_to shops_path, notice: "削除しました"
   end
 
   private
