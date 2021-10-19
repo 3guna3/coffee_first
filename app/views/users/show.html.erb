@@ -5,7 +5,11 @@
     </div>
     <div class="col-md-6 text-center">
       <h1 class="title"><%= @user.name %></h1>
-      <h6 class="introduction steel-gray bg-lemon"><%= @user.self_introduction %></h6>
+      <% if @user.self_introduction.present? %>
+        <h6 class="introduction steel-gray bg-lemon"><%= @user.self_introduction %></h6>
+      <% else %>
+        <h6 class="introduction steel-gray bg-lemon"><%= @user.name %>です</h6>
+      <% end %>
     </div>
   </div>
   <div class="row">
