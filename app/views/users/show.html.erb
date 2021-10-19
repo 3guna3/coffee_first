@@ -33,6 +33,12 @@
                   </tr>
                 </tbody>
               </table>
+              <p class="link-box">
+                <% if current_user && current_user.id == shop.user_id %>
+                  <%= link_to "編集", edit_shop_path(shop) %>
+                  <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
+                <% end %>
+              </p>
             </div>
           </div>
         <% end %>
@@ -58,12 +64,17 @@
                   <td><%= bean.created_at.strftime('%Y/%m/%d') %></td>
                 </tr>
               </table>
+              <p class="link-box">
+                <% if current_user && current_user.id == bean.user_id %>
+                  <%= link_to "編集", edit_bean_path(bean) %>
+                  <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <h3 class="text-center steel-gray">まだ登録がありません</h3>
         <% end %>
-      <% else %>
-        <h3 class="text-center steel-gray">まだ登録がありません</h3>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
