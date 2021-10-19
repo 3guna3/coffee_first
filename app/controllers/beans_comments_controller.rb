@@ -18,7 +18,7 @@ class BeansCommentsController < ApplicationController
       @beans_comment.destroy!
       redirect_back(fallback_location: root_path, notice: "コメントを削除しました")
     else
-      render @beans
+      render "beans/show"
     end
   end
 
