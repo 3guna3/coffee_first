@@ -20,11 +20,9 @@ class ShopsController < ApplicationController
 
   def create
     @shop = current_user.shops.new(shop_params)
-    @shop.img = "default.cafe.jpg"
     if @shop.save
-
-    else
       redirect_to shops_path, notice: "登録しました"
+    else
       flash.now[:alert] = "登録に失敗しました"
       render :new
     end

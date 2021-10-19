@@ -21,7 +21,7 @@ class BeansController < ApplicationController
   def create
     @bean = current_user.beans.new(bean_params)
     if @bean.save
-      redirect_to root_path, notice: "登録しました"
+      redirect_to beans_path, notice: "登録しました"
     else
       flash.now[:alert] = "登録に失敗しました"
       render :new
@@ -42,7 +42,7 @@ class BeansController < ApplicationController
 
   def destroy
     @bean.destroy!
-    redirect_to root_path
+    redirect_to beans_path, notice: "削除しました"
   end
 
   private
