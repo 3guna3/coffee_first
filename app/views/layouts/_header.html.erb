@@ -55,7 +55,8 @@
     <div class="container">
       <div class="masthead-subheading">あなたのお気に入りの一杯をみつけよう</div>
       <div class="masthead-heading">Cofee First</div>
-      <a class="btn btn-warning btn-xl" href="beans#index">さっそくさがしてみる!</a>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-salmon btn-xl" %>
+      <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "btn btn-spearmint btn-xl" %>
     </div>
   </header>
 <% end %>
