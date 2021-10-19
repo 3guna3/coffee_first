@@ -16,7 +16,7 @@
       <p><%= shop.prefecture %><%= shop.address %></p>
     </div>
     <div class="shop-rate">
-      <div class="average-review-rating" data-score=<%= shop.shop_comments.average(:rate) %>></div>
+      <div class="average-review-rating" data-score=<%= shop.rate_average %>></div>
       <%= render "/layouts/average" %>
     </div>
   </div>
