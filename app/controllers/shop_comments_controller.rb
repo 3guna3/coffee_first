@@ -14,7 +14,7 @@ class ShopCommentsController < ApplicationController
   def destroy
     if current_user.id == @shop_comment.user.id
       @shop_comment.destroy!
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, notice: "コメントを削除しました")
     else
       render "shops/show"
     end

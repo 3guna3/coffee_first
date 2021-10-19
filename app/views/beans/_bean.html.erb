@@ -2,7 +2,7 @@
   <a href="/beans/<%= bean.id %>" class="cards-body">
     <div class="cards-header">
       <% if bean.img? %>
-        <img src=<%= bean.image.url %> class="cards-image">
+        <img src=<%= bean.img.url %> class="cards-image">
       <% else %>
         <img src="assets/default-beans.jpg" class="cards-image">
       <% end %>
@@ -11,7 +11,7 @@
       <P><%= bean.name %></P>
     </div>
   </a>
-  <div class="contents">
+  <div class="contents steel-gray">
     <div class="underline">
       <p class="bean-tag">販売店</p>
       <p class="bean-content"><a href="/shops/<%= bean.shop_id %>"><%= bean.shop.name %></a></p>

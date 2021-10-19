@@ -16,7 +16,7 @@ class BeansCommentsController < ApplicationController
   def destroy
     if current_user.id == @beans_comment.user.id
       @beans_comment.destroy!
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path, notice: "コメントを削除しました")
     else
       render "beans/show"
     end
