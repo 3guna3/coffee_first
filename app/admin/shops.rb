@@ -14,5 +14,5 @@ ActiveAdmin.register Shop do
   #   permitted
   # end
 
-  permit_params :name, :prefecture, :address, :TEL, :URL, :img
+  permit_params :name, :prefecture, :address, :TEL, :URL, :img, :user_id
 end
