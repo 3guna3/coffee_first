@@ -20,18 +20,6 @@ ActiveAdmin.register Bean do
   filter :country
   filter :created_at
 
-  show do |bean|
-    attributes_table(*bean.class.columns.collect { |column| column.name.to_sym })
-    panel "コメント一覧" do
-      table_for bean.beans_comments do
-        column :user
-        column :content
-        column :created_at
-      end
-    end
-    active_admin_comments
-  end
-
   form do |f|
     f.inputs do
       f.input :name

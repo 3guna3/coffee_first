@@ -14,4 +14,11 @@ ActiveAdmin.register BeansComment do
   #   permitted
   # end
   permit_params :content, :bitterness, :acidity, :body
+
+  filter :user
+  filter :bean
+  filter :bitterness
+  filter :acidity
+  filter :body
+  filter :created_at
 end

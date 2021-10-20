@@ -8,9 +8,7 @@ ActiveAdmin.register Shop do
     column :prefecture
     column :address
     column :rate_average
-    column "登録者" do |shop|
-      shop.user.name
-    end
+    column :user
     column "登録コーヒー豆数" do |shop|
       shop.beans.count
     end
@@ -24,26 +22,6 @@ ActiveAdmin.register Shop do
   filter :address
   filter :rate_average
   filter :created_at
-
-  show do |shop|
-    attributes_table(*shop.class.columns.collect { |column| column.name.to_sym })
-    panel "登録コーヒー豆一覧" do
-      table_for shop.beans do
-        column :name
-        column :country
-        column :price
-        column :created_at
-      end
-    end
-    panel "コメント一覧" do
-      table_for shop.shop_comments do
-        column :user
-        column :content
-        column :created_at
-      end
-    end
-    active_admin_comments
-  end
 
   form do |f|
     f.inputs do

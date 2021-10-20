@@ -13,6 +13,10 @@ ActiveAdmin.register ShopComment do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  filter :user
+  filter :shop
+  filter :rate
+  filter :created_at
 
   permit_params :content, :rate
 end
