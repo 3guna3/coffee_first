@@ -1,0 +1,150 @@
+<h1 class="title mt-3"><%= @shop.name %></h1>
+<div class="shop-show">
+  <div class=row>
+    <div class="col-xl-4 shop-picture">
+      <% if @shop.img.present? %>
+        <img src=<%= @shop.img.url %> class="img-fluid">
+      <% else %>
+        <%= image_tag "default-cafe.jpg", class: "img-fluid" %>
+      <% end %>
+    </div>
+    <div class="col-xl-8 shop-detail">
+      <div class="row">
+        <div class="col-lg-6 shop-about">
+          <h2 class="title show">About</h2>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">平均評価</th>
+                <td>
+                  <div class="average-review-rating" data-score=<%= @shop_comments.average(:rate) %>>
+                  </div>
+                  <%= render "/layouts/average" %>
+                </td>
+                <td>
+                  <span class="small"><%= @shop.shop_comments.count %> 件の評価</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">住所</th>
+                <td colspan="2"><%= @shop.prefecture %><%= @shop.address %></td>
+              </tr>
+              <tr>
+                <th scope="row">電話番号</th>
+                <td colspan="2">
+                  <% if @shop.TEL? %>
+                    <div class="shop-TEL"><%= @shop.TEL %></div>
+                  <% end%>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">URL</th>
+                <td colspan="2">
+                  <% if @shop.URL? %>
+                    <div class="steel-gray"><%= text_url_to_link(h(@shop.URL)).html_safe %></div>
+                  <% end%>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">取扱豆</th>
+                <td colspan="2 bean-name">
+                  <% @beans.each do |bean| %>
+                    <div class="bean-name">
+                      <li>
+                        <a class="steel-gray" href="/beans/<%= bean.id %>"><%= bean.name %></a>
+                      </li>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-lg-6 shop-comments">
+          <h2 class="title show">Comments</h2>
+          <% @shop_comments.each do |c| %>
+            <div class="comments">
+              <div class="row">
+                <div class="col-2 registered-user">
+                  <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini">
+                    <p><%= c.user.name %></p>
+                  </a>
+                </div>
+                <div class="col-10 comment">
+                  <p><%= c.content %></p>
+                  <hr>
+                  <div class="rate-star">
+                    <div class="row">
+                      <div class="col-5 rate">
+                        <p>評価：<%= c.rate %>点</p>
+                      </div>
+                      <div class="col-7 star-rate">
+                        <div id="star-rate<%= c.id %>"></div>
+                        <script>
+                          $('#star-rate<%= c.id%>').empty();
+                            $('#star-rate<%= c.id%>').raty({
+                              size      : 36,
+                              starOff   : '<%= asset_path('star-off.png') %>',
+                              starOn    : '<%= asset_path('star-on.png') %>',
+                              half      : false,
+                              readOnly: true,
+                              score: <%= c.rate %>,
+                            });
+                        </script>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row delete-link">
+                    <% if current_user && current_user.id == c.user_id %>
+                      <%= link_to "削除", shop_shop_comment_path(@shop, c), method: :delete, data: { confirm: "削除しますか？" } %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="comments">
+            <%= form_for [@shop, @shop_comment] do |f| %>
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th scope="row">内容</th>
+                    <td colspan="2"><%= f.text_area :content %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">評価</th>
+                    <td>
+                      <div class="form-group comment-rate" id="star">
+                        <%= f.hidden_field :rate, id: :review_star %>
+                      </div>
+                      <%= f.hidden_field :shop_id, value: @shop.id %>
+                      <br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <div class="comment-button">
+                        <%= f.submit "コメントする", class: "btn  btn-block form-submit-btn" %>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <script>
+                $('#star').empty();
+                  $('#star').raty({
+                    size     : 36,
+                    starOff:  '<%= asset_path('star-off.png') %>',
+                    starOn : '<%= asset_path('star-on.png') %>',
+                
+                    scoreName: 'shop_comment[rate]',
+                    half: false,
+                  });
+              </script>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,367 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'bootstrap/scss/bootstrap';
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/regular';
+body {
+    padding-top: 70px;
+    min-height: 100vh;
+    color: #555;
+    background-color: moccasin;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    padding-top: 0.8rem;
+    margin-top: 3rem;
+    background-color: #ff7f50;
+    color: white;
+    text-align: center;
+}
+
+.table {
+    border-radius: 0.5rem;
+    color: #736d71;
+    background-color: #fffff0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+a {
+    text-decoration: none;
+    color: #736d71;
+}
+
+a:hover {
+    color: #999;
+}
+
+.base-container {
+    margin: 0 auto 0 auto;
+    padding: 1rem;
+}
+
+.btn {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 0.8;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 0.5;
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #ff0000;
+    border-radius: 0.5rem;
+}
+
+.hamburger-menu {
+    margin: 0 0 0 auto;
+}
+
+
+/* フラッシュ */
+
+.alert-notice {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    background-color: #79c06e;
+}
+
+.alert-alert {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    background-color: #ea5532;
+}
+
+
+/* ページネーション */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination>li>a {
+    border: none;
+    color: #999;
+}
+
+.pagination>li>a:hover {
+    color: #ff7f50;
+    background-color: white;
+}
+
+.pagination>.active>a {
+    color: #ff7f50;
+    background-color: white;
+}
+
+.pagination>.active>a:hover {
+    background-color: white;
+    color: #ff7f50;
+}
+
+
+/* --ページネーション */
+
+.nav {
+    background-color: #ff7f50;
+}
+
+.registration-form {
+    max-width: 100%;
+}
+
+
+/* トップページ */
+
+header {
+    display: block;
+}
+
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fcc800;
+    background-image: image-url('default-beans.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    .masthead-subheading {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        margin-bottom: 25px;
+        font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+    .masthead-heading {
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.3rem;
+        line-height: 3.25rem;
+        margin-bottom: 2rem;
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    }
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+
+/* ヒーローヘッダーボタン */
+
+.btn-salmon {
+    background: #fa8072;
+    color: #fff;
+}
+
+.btn-salmon:hover,
+.btn-salmon:focus,
+.btn-salmon:active,
+.btn-salmon:active:focus,
+.btn-salmon:active:hover,
+.btn-salmon:active.focus,
+.btn-salmon.active,
+.btn-salmon.active:focus,
+.btn-salmon.active:hover,
+.btn-salmon.active.focus,
+.open>.dropdown-toggle.btn-salmon,
+.open>.dropdown-toggle.btn-salmon:hover,
+.open>.dropdown-toggle.btn-salmon:focus,
+.open>.dropdown-toggle.btn-salmon.focus,
+.btn-salmon.disabled:hover,
+.btn-salmon[disabled]:hover,
+fieldset[disabled] .btn-salmon:hover,
+.btn-salmon.disabled:focus,
+.btn-salmon[disabled]:focus,
+fieldset[disabled] .btn-salmon:focus,
+.btn-salmon.disabled.focus,
+.btn-salmon[disabled].focus,
+fieldset[disabled] .btn-salmon.focus {
+    background: #ff4500;
+    color: #fff;
+}
+
+.btn-spearmint {
+    background: #79c06e;
+    color: #fff;
+}
+
+.btn-spearmint:hover,
+.btn-spearmint:focus,
+.btn-spearmint:active,
+.btn-spearmint:active:focus,
+.btn-spearmint:active:hover,
+.btn-spearmint:active.focus,
+.btn-spearmint.active,
+.btn-spearmint.active:focus,
+.btn-spearmint.active:hover,
+.btn-spearmint.active.focus,
+.open>.dropdown-toggle.btn-spearmint,
+.open>.dropdown-toggle.btn-spearmint:hover,
+.open>.dropdown-toggle.btn-spearmint:focus,
+.open>.dropdown-toggle.btn-spearmint.focus,
+.btn-spearmint.disabled:hover,
+.btn-spearmint[disabled]:hover,
+fieldset[disabled] .btn-spearmint:hover,
+.btn-spearmint.disabled:focus,
+.btn-spearmint[disabled]:focus,
+fieldset[disabled] .btn-spearmint:focus,
+.btn-spearmint.disabled.focus,
+.btn-spearmint[disabled].focus,
+fieldset[disabled] .btn-spearmint.focus {
+    background: #37a34a;
+    color: #fff;
+}
+
+
+/* --ヒーローヘッダーボタン */
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page-section {
+    padding: 6rem 0;
+}
+
+section {
+    display: block;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #6c757d !important;
+}
+
+.page-section h3.section-subheading,
+.page-section .section-subheading.h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    margin-bottom: 0.5rem;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    position: relative;
+    width: 2.5em;
+}
+
+.fa-4x {
+    font-size: 4em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+/* レスポンシブ対応 */
+
+@media only screen and (min-width: 960px) {
+    .registration-form {
+        max-width: 60%;
+        margin: auto;
+    }
+}

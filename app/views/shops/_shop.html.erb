@@ -1,0 +1,29 @@
+<div class="cards">
+  <a href="/shops/<%= shop.id %>" class="cards-body">
+    <div class="cards-header">
+      <% if shop.img? %>
+        <img src=<%= shop.img.url %> class="cards-image">
+      <% else %>
+        <img src="assets/default-cafe.jpg" class="cards-image">
+      <% end %>
+    </div>
+    <div class="cards-title">
+      <p><%= shop.name %></p>
+    </div>
+  </a>
+  <div class="contents">
+    <div class="shop-address">
+      <p><%= shop.prefecture %><%= shop.address %></p>
+    </div>
+    <div class="shop-rate">
+      <div class="average-review-rating" data-score=<%= shop.rate_average %>></div>
+      <%= render "/layouts/average" %>
+    </div>
+  </div>
+  <p class="link-box">
+    <% if current_user && current_user.id == shop.user_id %>
+      <%= link_to "編集", edit_shop_path(shop) %>
+      <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
+    <% end %>
+  </p>
+</div>

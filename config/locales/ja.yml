@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    enums:
+      shop:
+        prefecture:
+      bean:
+        country:
+    models:
+      shop: 焙煎店
+      bean: コーヒー豆
+      shop_comment: 焙煎店のコメント
+      beans_comment: コーヒー豆のコメント
+    attributes:
+      shop:
+        name: 店名
+        prefecture: 都道府県
+        address: 住所
+        TEL: 電話番号
+        URL: url
+        img: 画像
+        rate_average: 平均評価
+        user: 登録者
+      bean:
+        name: コーヒー豆名
+        price: 価格
+        country: 生産国
+        farm: 農園名
+        variety: 品種
+        screen_size: 大きさ
+        img: 画像
+        shop_id: 販売店名
+        user: 登録者
+        shop: 焙煎店
+      shop_comment:
+        content: 内容
+        rate: 評価
+        shop: 焙煎店名
+        user: 投稿者
+      beans_comment:
+        content: 内容
+        bitterness: 苦味レベル
+        acidity: 酸味レベル
+        body: コクレベル
+        user: 投稿者
+        bean: コーヒー豆
+      user:
+        name: ユーザー名
+        self_introduction: 自己紹介文
+        img: プロフィール画像
+  attributes:
+    id: ID
+    namespace: 名前空間
+    resource_type: リソースタイプ
+    resource_id: リソースID
+    author_type: 著者タイプ
+    author_id: 著者ID
+    created_at: 作成日時
+    updated_at: 更新日時

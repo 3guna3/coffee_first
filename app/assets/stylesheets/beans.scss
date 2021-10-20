@@ -1,0 +1,48 @@
+// Place all the styles related to the beans controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.price {
+    margin: 0.5rem 0;
+}
+
+.contents {
+    margin: 0;
+    padding: 1rem 1rem 0.5rem 1rem;
+    text-align: center;
+    background-color: #ffebcd;
+    border-radius: 0.5rem;
+}
+
+.bean-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    height: 4rem;
+    text-align: center;
+    color: #555;
+}
+
+.bean-tag {
+    float: left;
+}
+
+.bean-content {
+    text-align: right;
+}
+
+.underline {
+    padding-top: 0.5rem;
+    border-bottom: dashed 2px #d2b48c;
+}
+
+@media only screen and (min-width: 780px) {
+    .bean-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media not all and (min-width: 768px) {
+    .contents {
+        font-size: 1.2rem;
+    }
+}

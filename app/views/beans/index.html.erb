@@ -1,0 +1,12 @@
+<div class=row>
+  <div class="col-lg-3 search-form">
+    <%= render "bean_search_form" %>
+  </div>
+  <div class="col-lg-9">
+    <h1 class="title">Beans</h1>
+    <div class="wrap">
+      <%= render @beans %>
+    </div>
+  </div>
+</div>
+<%= paginate @beans %>

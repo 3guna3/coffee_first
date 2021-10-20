@@ -1,0 +1,24 @@
+<h1 class="title mt-3"><%= @bean.name %></h1>
+<div class="shop-show">
+  <div class="row">
+    <div class="col-xl-4 shop-picture">
+      <% if @bean.img.present? %>
+        <img src=<%= @bean.img.url %> class="img-fluid" alt="コーヒー豆のイメージ">
+      <% else %>
+        <%= image_tag "default-beans.jpg", class: "img-fluid" %>
+      <% end %>
+    </div>
+    <div class="col-xl-8 shop-detail">
+      <div class="row">
+        <%= render "bean-about" %>
+        <div class="col-lg-6 shop-comments">
+          <h2 class="title show">Comments</h2>
+          <%= render "bean-comments" %>
+          <div class="comments">
+            <%= render "comment" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
