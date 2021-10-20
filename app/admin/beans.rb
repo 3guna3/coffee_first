@@ -14,5 +14,5 @@ ActiveAdmin.register Bean do
   #   permitted
   # end
 
-  permit_params :name, :price, :country, :farm, :variety, :screen_size, :img
+  permit_params :name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id
 end

@@ -27,9 +27,9 @@ gem "jbuilder", "~> 2.7"
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem "activeadmin"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "carrierwave"
-gem "activeadmin"
 gem "devise"
 gem "devise-i18n"
 gem "enum_help"
@@ -39,13 +39,13 @@ gem "ransack"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "kaminari"
   gem "pry-byebug"
   gem "pry-doc"
   gem "pry-rails"
   gem "rspec", ">= 3.0.0"
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  gem "kaminari"
 end
 
 group :development do
