@@ -204,6 +204,76 @@ header.masthead {
     text-transform: uppercase !important;
 }
 
+
+/* ヒーローヘッダーボタン */
+
+.btn-salmon {
+    background: #fa8072;
+    color: #fff;
+}
+
+.btn-salmon:hover,
+.btn-salmon:focus,
+.btn-salmon:active,
+.btn-salmon:active:focus,
+.btn-salmon:active:hover,
+.btn-salmon:active.focus,
+.btn-salmon.active,
+.btn-salmon.active:focus,
+.btn-salmon.active:hover,
+.btn-salmon.active.focus,
+.open>.dropdown-toggle.btn-salmon,
+.open>.dropdown-toggle.btn-salmon:hover,
+.open>.dropdown-toggle.btn-salmon:focus,
+.open>.dropdown-toggle.btn-salmon.focus,
+.btn-salmon.disabled:hover,
+.btn-salmon[disabled]:hover,
+fieldset[disabled] .btn-salmon:hover,
+.btn-salmon.disabled:focus,
+.btn-salmon[disabled]:focus,
+fieldset[disabled] .btn-salmon:focus,
+.btn-salmon.disabled.focus,
+.btn-salmon[disabled].focus,
+fieldset[disabled] .btn-salmon.focus {
+    background: #ff4500;
+    color: #fff;
+}
+
+.btn-spearmint {
+    background: #79c06e;
+    color: #fff;
+}
+
+.btn-spearmint:hover,
+.btn-spearmint:focus,
+.btn-spearmint:active,
+.btn-spearmint:active:focus,
+.btn-spearmint:active:hover,
+.btn-spearmint:active.focus,
+.btn-spearmint.active,
+.btn-spearmint.active:focus,
+.btn-spearmint.active:hover,
+.btn-spearmint.active.focus,
+.open>.dropdown-toggle.btn-spearmint,
+.open>.dropdown-toggle.btn-spearmint:hover,
+.open>.dropdown-toggle.btn-spearmint:focus,
+.open>.dropdown-toggle.btn-spearmint.focus,
+.btn-spearmint.disabled:hover,
+.btn-spearmint[disabled]:hover,
+fieldset[disabled] .btn-spearmint:hover,
+.btn-spearmint.disabled:focus,
+.btn-spearmint[disabled]:focus,
+fieldset[disabled] .btn-spearmint:focus,
+.btn-spearmint.disabled.focus,
+.btn-spearmint[disabled].focus,
+fieldset[disabled] .btn-spearmint.focus {
+    background: #37a34a;
+    color: #fff;
+}
+
+
+/* --ヒーローヘッダーボタン */
+
 .container,
 .container-fluid,
 .container-xxl,

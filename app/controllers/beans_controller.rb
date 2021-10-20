@@ -42,7 +42,7 @@ class BeansController < ApplicationController
 
   def destroy
     @bean.destroy!
-    redirect_to beans_path, notice: "削除しました"
+    redirect_to(fallback_location: root_path, notice: "削除しました")
   end
 
   private

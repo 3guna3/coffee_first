@@ -48,7 +48,7 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop.destroy!
-    redirect_to shops_path, notice: "削除しました"
+    redirect_back(fallback_location: root_path, notice: "削除しました")
   end
 
   private
