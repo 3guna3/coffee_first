@@ -8,7 +8,7 @@ ActiveAdmin.register Shop do
     column :prefecture
     column :address
     column :rate_average
-    column :user
+    column "登録者", :user
     column "登録コーヒー豆数" do |shop|
       shop.beans.count
     end

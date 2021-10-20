@@ -8,8 +8,8 @@ ActiveAdmin.register Bean do
     column :name
     column :price
     column :country
-    column :user
-    column :shop
+    column "登録者", :user
+    column "販売店", :shop
     column :created_at
     column :updated_at
     actions

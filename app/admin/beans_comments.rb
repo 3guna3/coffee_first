@@ -15,6 +15,21 @@ ActiveAdmin.register BeansComment do
   # end
   permit_params :content, :bitterness, :acidity, :body
 
+  index do
+    selectable_column
+
+    id_column
+    column :content
+    column :bitterness
+    column :acidity
+    column :body
+    column "登録者", :user
+    column "コーヒー豆", :bean
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   filter :user
   filter :bean
   filter :bitterness
