@@ -1,5 +1,5 @@
 ActiveAdmin.register Bean do
-  permit_params :name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop_id
+  permit_params :name, :price, :country, :farm, :variety, :screen_size, :img, :user_id, :shop
 
   index do
     selectable_column
@@ -8,12 +8,8 @@ ActiveAdmin.register Bean do
     column :name
     column :price
     column :country
-    column "登録者" do |bean|
-      bean.user.name
-    end
-    column "販売店" do |bean|
-      bean.shop.name
-    end
+    column :user
+    column :shop
     column :created_at
     column :updated_at
     actions
