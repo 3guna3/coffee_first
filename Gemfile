@@ -32,6 +32,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "carrierwave"
 gem "devise"
 gem "devise-i18n"
+gem "fog-aws"
 gem "enum_help"
 gem "mini_magick"
 gem "ransack"
