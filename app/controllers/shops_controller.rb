@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
       @shops = @q.result.page(params[:page]).per(PER_PAGE)
     else
       params[:q] = { sorts: "created_at desc" }
-      @shops = Shop.includes(:user).order(:created_at).page(params[:page]).per(PER_PAGE)
+      @shops = Shop.order(:created_at).page(params[:page]).per(PER_PAGE)
     end
   end
 
