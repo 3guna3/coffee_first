@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xl-4 shop-picture">
       <% if @bean.img.present? %>
-        <img src=<%= @bean.img.url %> class="img-fluid" alt="コーヒー豆のイメージ">
+        <img src=<%= @bean.img.url %> class="img-fluid" alt="コーヒー豆">
       <% else %>
         <%= image_tag "default-beans.jpg", class: "img-fluid" %>
       <% end %>
