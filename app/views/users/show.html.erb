@@ -34,15 +34,13 @@
                 </tbody>
               </table>
               <p class="link-box">
-                <% if user_signed_in? && current_user.id == shop.user_id %>
+                <% if current_user && current_user.id == shop.user_id %>
                   <%= link_to "編集", edit_shop_path(shop) %>
                   <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
-                <% else %>
-                  間違い
                 <% end %>
               </p>
             </div>
-          <% end %>
+          </div>
         <% end %>
       <% else %>
         <h3 class="text-center steel-gray">まだ登録がありません</h3>
