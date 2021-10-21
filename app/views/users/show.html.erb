@@ -34,7 +34,7 @@
                 </tbody>
               </table>
               <p class="link-box">
-                <% if current_user && current_user.id == shop.user_id %>
+                <% if user_signed_in? && current_user.id == shop.user_id %>
                   <%= link_to "編集", edit_shop_path(shop) %>
                   <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
                 <% end %>
@@ -65,7 +65,7 @@
                 </tr>
               </table>
               <p class="link-box">
-                <% if current_user && current_user.id == bean.user_id %>
+                <% if user_signed_in? && current_user.id == bean.user_id %>
                   <%= link_to "編集", edit_bean_path(bean) %>
                   <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
                 <% end %>
