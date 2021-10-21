@@ -4,7 +4,7 @@
       <% if bean.img? %>
         <img src=<%= bean.img.url %> class="cards-image">
       <% else %>
-        <img src="assets/default-beans.jpg" class="cards-image">
+        <%= image_tag "default-beans.jpg", class: "cards-image" %>
       <% end %>
     </div>
     <div class="bean-title">
