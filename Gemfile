@@ -32,13 +32,14 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "carrierwave"
 gem "devise"
 gem "devise-i18n"
-gem "fog-aws"
 gem "enum_help"
+gem "fog-aws"
 gem "mini_magick"
 gem "ransack"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "bullet"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "kaminari"
   gem "pry-byebug"
@@ -47,7 +48,6 @@ group :development, :test do
   gem "rspec", ">= 3.0.0"
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  gem "bullet"
 end
 
 group :development do
