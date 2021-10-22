@@ -19,11 +19,18 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 @import '@fortawesome/fontawesome-free/scss/regular';
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     padding-top: 70px;
     min-height: 100vh;
     color: #555;
     background-color: moccasin;
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+}
+
+main {
+    flex: 1;
 }
 
 footer {
@@ -157,6 +164,17 @@ a:hover {
 
 
 /* --ページネーション */
+
+
+/* span */
+
+.essential {
+    color: red;
+    padding-right: 0.5em;
+}
+
+
+/* --span */
 
 .nav {
     background-color: #ff7f50;
