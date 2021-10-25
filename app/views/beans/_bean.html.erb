@@ -2,9 +2,9 @@
   <a href="/beans/<%= bean.id %>" class="cards-body">
     <div class="cards-header">
       <% if bean.img? %>
-        <img src=<%= bean.img.url %> class="cards-image">
+        <img src=<%= bean.img.url %>>
       <% else %>
-        <%= image_tag "default-beans.jpg", class: "cards-image" %>
+        <%= image_tag "default-beans.jpg" %>
       <% end %>
     </div>
     <div class="bean-title">
