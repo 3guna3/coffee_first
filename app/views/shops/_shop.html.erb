@@ -2,9 +2,9 @@
   <a href="/shops/<%= shop.id %>" class="cards-body">
     <div class="cards-header">
       <% if shop.img? %>
-        <img src=<%= shop.img.url %> class="cards-image">
+        <img src=<%= shop.img.url %>>
       <% else %>
-        <%= image_tag "default-cafe.jpg", class: "cards-image" %>
+        <%= image_tag "default-cafe.jpg" %>
       <% end %>
     </div>
     <div class="shop-title">
