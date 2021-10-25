@@ -9,7 +9,7 @@
 
 ## アプリ開発経緯
 
-既存のアプリでは都道府県で焙煎店を検索できるものがあるが、市区町村での詳しい検索ができなかったり、豆の情報までは各店舗のHPにアクセスしないと確認できないといったことが不便だなと感じていました。
+私自身、コーヒーが大好きで新しい焙煎店やコーヒー豆を探すために既存のアプリをよく見ていたのですが、既存のアプリでは都道府県で焙煎店を検索できるものはあるのですが、市区町村での詳しい検索ができなかったり、豆の情報までは各店舗のHPにアクセスしないと確認できないといったことに関して不便だなぁと感じていました。
 
 - #### 既存のアプリでは都道府県までの検索しかできず市区町村の範囲には対応していない
 - #### 豆の生産国での検索などには対応していない
@@ -48,7 +48,7 @@
 
 
 
-## アプリの特徴
+## アプリの使い方
 
 ### コーヒー豆の検索
 <br>
@@ -57,12 +57,14 @@
 
 <br>
 
-![スクリーンショット 2021-10-25 8 34 50](https://user-images.githubusercontent.com/83042016/138617370-c6babb2f-d5ce-4e91-bca7-312d75042480.png)
+![bean-search new](https://user-images.githubusercontent.com/83042016/138647870-a75e9589-6b42-4ebd-b524-fc8582cee62a.gif)
+
 
 <br>
 
 また、新着順や価格が安い順、高い順に検索結果を並べ替えることもできます。<br>
-コーヒー豆の画像や、豆名をクリックすると該当コーヒー豆の詳細ページに、店舗名の欄の店舗名をクリックすると該当店舗の詳細ページへと遷移します。
+
+![bean-price new](https://user-images.githubusercontent.com/83042016/138648247-08210e1d-8f6c-4b6e-8441-4bbe222ecd83.gif)
 
 <br>
 
@@ -75,12 +77,14 @@
 
 <br>
 
-![スクリーンショット 2021-10-22 10 16 49](https://user-images.githubusercontent.com/83042016/138378261-d6bf5a0d-12c8-42a2-ae28-761693accbd4.png)
+![shop-search](https://user-images.githubusercontent.com/83042016/138648805-a6ba1578-c33e-40cb-807d-190ed1a6898d.gif)
+
 
 <br>
 
 また、新着順や評価が高い順に検索結果を並べ替えることもできます。<br>
-店舗の画像や、店名をクリックすると該当店舗の詳細ページに、店舗名の欄の店舗名をクリックすると該当店舗の詳細ページへと遷移します。
+
+![shop-rate](https://user-images.githubusercontent.com/83042016/138650480-7ecaec27-3d67-467c-805c-dbbce16fed77.gif)
 
 <br>
 
@@ -88,14 +92,10 @@
 
 <br>
 
-![スクリーンショット 2021-10-25 9 01 57](https://user-images.githubusercontent.com/83042016/138618125-45f2eb78-3b31-4e4a-be22-5054938b83b3.png)
+![bean new](https://user-images.githubusercontent.com/83042016/138645275-db0963a1-5dd0-4a0b-959c-df67aef93d7a.gif)
 
 <br>
 登録する際、ユーザーが生産国の文字を間違えて入力してしまうと検索できなくなる可能性も考えられたため、生産国に関してはenumのセレクトボックスを活用し、プルダウンで選択できるようデータを持たせました。<br>
-
-<br>
-
-![スクリーンショット 2021-10-25 9 03 31](https://user-images.githubusercontent.com/83042016/138618160-480ad16c-6456-4d3c-b7bc-7ee7704e1f82.png)
 
 
 <br>
@@ -104,14 +104,10 @@
 
 <br>
 
-![スクリーンショット 2021-10-25 9 07 31](https://user-images.githubusercontent.com/83042016/138618294-b4d839d9-ce1b-47db-9475-df1670d6af27.png)
+![beans new](https://user-images.githubusercontent.com/83042016/138640964-0674764a-6a6e-4b84-8350-79e56f68b2d7.gif)
 
 <br>
 こちらも登録する際、ユーザーが都道府県の文字を間違えて入力してしまうと検索できなくなる可能性も考えられたため、都道府県に関してはenumのセレクトボックスを活用し、プルダウンで選択できるようデータを持たせました。<br>
-
-<br>
-
-![スクリーンショット 2021-10-25 9 07 48](https://user-images.githubusercontent.com/83042016/138618317-9bdf3de2-56ff-446f-895a-cb0635287701.png)
 
 <br>
 
@@ -123,7 +119,7 @@
 
 <br>
 
-![スクリーンショット 2021-10-25 9 14 02](https://user-images.githubusercontent.com/83042016/138618449-e5dc6914-dc37-4957-bbb0-971816c19394.png)
+![bean-rated](https://user-images.githubusercontent.com/83042016/138653340-b68d4e3d-aede-426f-a7c9-64dbda8a9067.gif)
 
 <br>
 
@@ -135,7 +131,7 @@
 
 <br>
 
-![スクリーンショット 2021-10-25 9 11 48](https://user-images.githubusercontent.com/83042016/138618570-1acecbd3-4cc8-4281-9306-b1e0f87d17f4.png)
+![shop-rated](https://user-images.githubusercontent.com/83042016/138653798-3dbbc44b-25b8-4e81-a8b0-90c585f0bd3d.gif)
 
 <br>
 
@@ -164,6 +160,10 @@
 - プロフィール編集
 - アカウント削除
 - 管理画面(active_admin)
+
+## ER図
+
+<img width="715" alt="スクリーンショット 2021-10-25 14 32 00" src="https://user-images.githubusercontent.com/83042016/138639586-94c4ef21-45cf-484f-870e-0def39d75b8e.png">
 
 ## 使用技術　　
 - 言語 ：Ruby(2.7.3)
