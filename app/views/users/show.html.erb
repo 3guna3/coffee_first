@@ -33,12 +33,7 @@
                   </tr>
                 </tbody>
               </table>
-              <p class="link-box">
-                <% if user_signed_in? && current_user.id == shop.user_id %>
-                  <%= link_to "編集", edit_shop_path(shop) %>
-                  <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
-                <% end %>
-              </p>
+              <%= render partial: "layouts/link-box", locals: { object: shop } %>
             </div>
           </div>
         <% end %>
@@ -51,30 +46,28 @@
       <hr class="style-1">
       <% if @beans.present? %>
         <% @beans.each do |bean| %>
-          <div class="card mb-4">
+          <div class="card mb-4 rounded">
             <div class="card-body bg-lemon">
               <h5 class="card-title"><a href="/beans/<%= bean.id %>"><%= bean.name %></a></h5>
               <table class="table">
-                <tr>
-                  <th scope="row">価格</th>
-                  <td><%= bean.price %><span>円</span></td>
-                </tr>
-                <tr>
-                  <th scope="row">投稿日</th>
-                  <td><%= bean.created_at.strftime('%Y/%m/%d') %></td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th scope="row">価格</th>
+                    <td><%= bean.price %><span>円</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">投稿日</th>
+                    <td><%= bean.created_at.strftime('%Y/%m/%d') %></td>
+                  </tr>
+                </tbody>
               </table>
-              <p class="link-box">
-                <% if user_signed_in? && current_user.id == bean.user_id %>
-                  <%= link_to "編集", edit_bean_path(bean) %>
-                  <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
-                <% end %>
-              </div>
+              <%= render partial: "layouts/link-box", locals: { object: bean } %>
             </div>
-          <% end %>
-        <% else %>
-          <h3 class="text-center steel-gray">まだ登録がありません</h3>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <h3 class="text-center steel-gray">まだ登録がありません</h3>
+      <% end %>
     </div>
   </div>
+</div>

@@ -1,6 +1,6 @@
 <p class="link-box">
   <% if current_user && current_user.id == object.user_id %>
-    <%= link_to "編集", edit_shop_path(object) %>
-    <%= link_to "削除", shop_path(object), method: :delete, data: { confirm: "削除しますか？" } %>
+    <%= link_to "編集", send("edit_#{object.class.to_s.downcase}_path", object) %>
+    <%= link_to "削除", send("#{object.class.to_s.downcase}_path", object), method: :delete, data: { confirm: "削除しますか？" } %>
   <% end %>
 </p>
