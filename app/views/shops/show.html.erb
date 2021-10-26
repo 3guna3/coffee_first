@@ -98,7 +98,7 @@
             </div>
           <% end %>
           <div class="comments">
-            <%= form_for [@shop, @shop_comment] do |f| %>
+            <%= form_with(model: [@shop, @shop_comment]) do |f| %>
               <table class="table table-borderless">
                 <tbody>
                   <tr>
