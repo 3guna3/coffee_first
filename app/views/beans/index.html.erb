@@ -5,7 +5,7 @@
   <div class="col-lg-9">
     <h1 class="title">Beans</h1>
     <div class="wrap">
-      <%= render @beans %>
+      <%= render @beans.includes(:shop) %>
     </div>
   </div>
 </div>
