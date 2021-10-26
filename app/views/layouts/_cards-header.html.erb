@@ -1,0 +1,12 @@
+<a href="/<%= objects %>/<%= object.id %>" class="cards-body">
+  <div class="cards-header">
+    <% if object.img? %>
+      <img src=<%= object.img.url %>>
+    <% else %>
+      <%= image_tag "default-#{objects}.jpg" %>
+    <% end %>
+  </div>
+  <div class="<%= title %>-title">
+    <P><%= object.name %></P>
+  </div>
+</a>

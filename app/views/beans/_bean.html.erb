@@ -1,16 +1,5 @@
 <div class="cards">
-  <a href="/beans/<%= bean.id %>" class="cards-body">
-    <div class="cards-header">
-      <% if bean.img? %>
-        <img src=<%= bean.img.url %>>
-      <% else %>
-        <%= image_tag "default-beans.jpg" %>
-      <% end %>
-    </div>
-    <div class="bean-title">
-      <P><%= bean.name %></P>
-    </div>
-  </a>
+  <%= render partial: "layouts/cards-header", locals: { objects: "beans", object: bean, title: "shop" } %>
   <div class="contents steel-gray">
     <div class="underline">
       <p class="bean-tag">販売店</p>

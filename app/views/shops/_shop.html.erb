@@ -1,16 +1,5 @@
 <div class="cards">
-  <a href="/shops/<%= shop.id %>" class="cards-body">
-    <div class="cards-header">
-      <% if shop.img? %>
-        <img src=<%= shop.img.url %>>
-      <% else %>
-        <%= image_tag "default-cafe.jpg" %>
-      <% end %>
-    </div>
-    <div class="shop-title">
-      <p><%= shop.name %></p>
-    </div>
-  </a>
+  <%= render partial: "layouts/cards-header", locals: { objects: "shops", object: shop, title: "shop" } %>
   <div class="contents">
     <div class="shop-address">
       <p><%= shop.prefecture %><%= shop.address %></p>
