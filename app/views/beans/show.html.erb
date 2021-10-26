@@ -1,13 +1,7 @@
 <h1 class="title mt-3"><%= @bean.name %></h1>
 <div class="shop-show">
   <div class="row">
-    <div class="col-xl-4 shop-picture">
-      <% if @bean.img.present? %>
-        <img src=<%= @bean.img.url %> class="img-fluid" alt="コーヒー豆">
-      <% else %>
-        <%= image_tag "default-beans.jpg", class: "img-fluid" %>
-      <% end %>
-    </div>
+    <%= render partial: "layouts/object-img", locals: { object: @bean, img: "beans" } %>
     <div class="col-xl-8 shop-detail">
       <div class="row">
         <%= render "bean-about" %>

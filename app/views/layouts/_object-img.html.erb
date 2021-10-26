@@ -1,0 +1,7 @@
+<div class="col-xl-4 shop-picture">
+  <% if object.img? %>
+    <img src=<%= object.img.url %> class="img-fluid">
+  <% else %>
+    <%= image_tag "default-#{img}.jpg", class: "img-fluid" %>
+  <% end %>
+</div>
