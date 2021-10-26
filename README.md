@@ -1,4 +1,8 @@
 # Coffee First
+
+![スクリーンショット 2021-10-26 8 27 12](https://user-images.githubusercontent.com/83042016/138879142-750b6b8c-19aa-4f8f-bd67-0242ea47bcba.png)
+
+
 〜きっとあなたのお気に入りの一杯が見つかる〜<br>
 コーヒー豆・焙煎店の検索アプリです。
 
