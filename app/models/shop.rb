@@ -7,6 +7,8 @@ class Shop < ApplicationRecord
   validates :prefecture, exclusion: { in: %w[---], message: "を選択してください" }
   validates :address, presence: true
 
+  DEFAULTLATE = 0.0
+
   enum prefecture: {
     "---": 0,
     北海道: 1, 青森県: 2, 岩手県: 3, 宮城県: 4, 秋田県: 5, 山形県: 6, 福島県: 7,
@@ -25,7 +27,7 @@ class Shop < ApplicationRecord
       shop_comments_average = shop_comments.average(:rate)
       update(rate_average: shop_comments_average)
     else
-      update(rate_average: 0.0)
+      update(rate_average: DEFAULTLATE)
     end
   end
 
