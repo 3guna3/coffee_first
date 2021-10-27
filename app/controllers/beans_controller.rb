@@ -7,7 +7,7 @@ class BeansController < ApplicationController
 
   def index
     if params[:q].present?
-      @beans = @q.result.page(params[:page]).per(PER_PAGE)
+      @beans = @q.result.page(params[:page]).includes(:shop).per(PER_PAGE)
     else
       params[:q] = { sorts: "created_at desc" }
       @beans = Bean.includes(:shop).order(:created_at).page(params[:page]).per(PER_PAGE)
@@ -29,7 +29,7 @@ class BeansController < ApplicationController
   end
 
   def show
-    @bean_comments = @bean.beans_comments
+    @bean_comments = @bean.beans_comments.includes(:user)
     @bean_comment = current_user.beans_comments.new
   end
 

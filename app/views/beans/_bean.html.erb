@@ -26,7 +26,7 @@
     </div>
   </div>
   <p class="link-box">
-    <% if current_user && current_user.id == bean.user_id %>
+    <% if user_signed_in? && current_user.id == bean.user_id %>
       <%= link_to "編集", edit_bean_path(bean) %>
       <%= link_to "削除", bean_path(bean), method: :delete, data: { confirm: "削除しますか？" } %>
     <% end %>

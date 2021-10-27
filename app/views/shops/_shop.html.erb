@@ -4,24 +4,35 @@
       <% if shop.img? %>
         <img src=<%= shop.img.url %>>
       <% else %>
-        <%= image_tag "default-cafe.jpg" %>
+        <%= image_tag "default-shops.jpg" %>
       <% end %>
     </div>
-    <div class="shop-title">
-      <p><%= shop.name %></p>
+    <div class="bean-title">
+      <P><%= shop.name %></P>
     </div>
   </a>
-  <div class="contents">
+  <div class="contents steel-gray">
     <div class="shop-address">
       <p><%= shop.prefecture %><%= shop.address %></p>
     </div>
     <div class="shop-rate">
       <div class="average-review-rating" data-score=<%= shop.rate_average %>></div>
-      <%= render "/layouts/average" %>
+      <script>
+        $('.average-review-rating').empty();
+          $('.average-review-rating').raty({
+            readOnly: true,
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            score: function() {
+              return $(this).attr('data-score')
+            }
+          });
+      </script>
     </div>
   </div>
   <p class="link-box">
-    <% if current_user && current_user.id == shop.user_id %>
+    <% if user_signed_in? && current_user.id == shop.user_id %>
       <%= link_to "編集", edit_shop_path(shop) %>
       <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
     <% end %>
