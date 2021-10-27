@@ -415,3 +415,12 @@ h1,
         margin: auto;
     }
 }
+
+@media only screen and (max-width: 780px) {
+    .btn-salmon {
+        margin-bottom: 1rem;
+    }
+    .btn-spearmint {
+        margin-bottom: 1rem;
+    }
+}
