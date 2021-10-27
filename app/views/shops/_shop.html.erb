@@ -1,13 +1,40 @@
 <div class="cards">
-  <%= render partial: "layouts/cards-header", locals: { objects: "shops", object: shop } %>
+  <a href="/shops/<%= shop.id %>" class="cards-body">
+    <div class="cards-header">
+      <% if shop.img? %>
+        <img src=<%= shop.img.url %>>
+      <% else %>
+        <%= image_tag "default-shops.jpg" %>
+      <% end %>
+    </div>
+    <div class="bean-title">
+      <P><%= shop.name %></P>
+    </div>
+  </a>
   <div class="contents steel-gray">
     <div class="shop-address">
       <p><%= shop.prefecture %><%= shop.address %></p>
     </div>
     <div class="shop-rate">
       <div class="average-review-rating" data-score=<%= shop.rate_average %>></div>
-      <%= render "/layouts/average" %>
+      <script>
+        $('.average-review-rating').empty();
+          $('.average-review-rating').raty({
+            readOnly: true,
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            score: function() {
+              return $(this).attr('data-score')
+            }
+          });
+      </script>
     </div>
   </div>
-  <%= render partial: "layouts/link-box", locals: { object: shop } %>
+  <p class="link-box">
+    <% if user_signed_in? && current_user.id == shop.user_id %>
+      <%= link_to "編集", edit_shop_path(shop) %>
+      <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
+    <% end %>
+  </p>
 </div>

@@ -1,0 +1,40 @@
+  
+<div class="comments">
+  <div class="row">
+    <div class="col-2 registered-user">
+      <a class="steel-gray" href="/users/<%= c.user.id %>"><img src=<%= c.user.img.url %> class="icon-image-mini">
+        <p><%= c.user.name %></p>
+      </a>
+    </div>
+    <div class="col-10 comment">
+      <p><%= c.content %></p>
+      <hr>
+      <div class="rate-star">
+        <div class="row">
+          <div class="col-5 rate">
+            <p>評価：<%= c.rate %>点</p>
+          </div>
+          <div class="col-7 star-rate">
+            <div id="star-rate<%= c.id %>"></div>
+            <script>
+              $('#star-rate<%= c.id%>').empty();
+                $('#star-rate<%= c.id%>').raty({
+                  size      : 36,
+                  starOff   : '<%= asset_path('star-off.png') %>',
+                  starOn    : '<%= asset_path('star-on.png') %>',
+                  half      : false,
+                  readOnly: true,
+                  score: <%= c.rate %>,
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="row delete-link">
+        <% if current_user && current_user.id == c.user_id %>
+          <%= link_to "削除", shop_shop_comment_path(@shop, c), method: :delete, data: { confirm: "削除しますか？" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

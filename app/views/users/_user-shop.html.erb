@@ -1,0 +1,23 @@
+<div class="card mb-4 rounded">
+  <div class="card-body bg-lemon">
+    <h5 class="card-title"><a href="/shops/<%= shop.id %>"><%= shop.name %></a></h5>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">住所</th>
+          <td><%= shop.prefecture %><%= shop.address %></td>
+        </tr>
+        <tr>
+          <th scope="row">投稿日</th>
+          <td><%= shop.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="link-box">
+      <% if user_signed_in? && current_user.id == shop.user_id %>
+        <%= link_to "編集", edit_shop_path(shop) %>
+        <%= link_to "削除", shop_path(shop), method: :delete, data: { confirm: "削除しますか？" } %>
+      <% end %>
+    </p>
+  </div>
+</div>
