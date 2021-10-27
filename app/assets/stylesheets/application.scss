@@ -415,3 +415,13 @@ h1,
         margin: auto;
     }
 }
+
+@media only screen and (max-width: 780px) {
+    .btn-salmon {
+        margin-bottom: 1rem;
+    }
+    .btn-orange {
+        margin-bottom: 1rem;
+        margin-right: 1.2rem;
+    }
+}
