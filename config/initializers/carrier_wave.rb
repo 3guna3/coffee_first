@@ -7,5 +7,6 @@ if Rails.env.production?
       region: "ap-northeast-1"
     }
     config.fog_directory = "coffee-first"
+    config.asset_host = "https://static.coffee-first.work"
   end
 end
