@@ -174,7 +174,7 @@
 - フレームワーク :Ruby on Rails(6.1.4.1)
 - フロントエンド :HTML/Scss/JavaScript
 - DB :PostgreSQL
-- インフラ :Heroku
+- インフラ :AWS(EC2、RDS、Route53、ALB、VPC、S3）
 - ソースコード管理 :Github
 - 開発環境　:MacOS/Visual Studio Code
 
@@ -183,4 +183,3 @@
 - 気になるコーヒー豆・焙煎店をユーザー毎にチェックしておける機能
 - 検索機能に位置情報での検索を追加
 - テスト(Rspec)を記述
-- AWSへデプロイ
