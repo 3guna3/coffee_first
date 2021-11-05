@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     context "データが条件を満たすとき" do
       let(:user) { build(:user) }
       it "保存できる" do
-        expect(user.valid?).to eq true
+        expect(subject).to eq true
       end
     end
 
