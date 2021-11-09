@@ -8,6 +8,7 @@ class ShopsController < ApplicationController
   def index
     if params[:q].present?
       @shops = @q.result.page(params[:page]).per(PER_PAGE)
+      @count = @shops.total_count
     else
       params[:q] = { sorts: "created_at desc" }
       @shops = Shop.order(:created_at).page(params[:page]).per(PER_PAGE)

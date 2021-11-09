@@ -8,6 +8,7 @@ class BeansController < ApplicationController
   def index
     if params[:q].present?
       @beans = @q.result.page(params[:page]).includes(:shop).per(PER_PAGE)
+      @count = @beans.total_count
     else
       params[:q] = { sorts: "created_at desc" }
       @beans = Bean.includes(:shop).order(:created_at).page(params[:page]).per(PER_PAGE)
