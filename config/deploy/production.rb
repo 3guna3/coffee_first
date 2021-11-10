@@ -1,7 +1,7 @@
-server "35.76.19.84", user: "3guna3", roles: %w[app db web]
+server "54.150.244.0", user: "3guna3", roles: %w[app db web]
 
 set :ssh_options, {
-  keys: %w[~/.ssh/coffee_first.pem],
+  keys: %w[~/.ssh/Coffee_First.pem],
   forward_agent: true,
   auth_methods: %w[publickey]
 }
