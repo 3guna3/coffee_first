@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: coffee_first_production
+  database: Coffee_First_production
   username: postgres
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:hostname] %>
