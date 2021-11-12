@@ -61,7 +61,7 @@
 
 <br>
 
-![bean-search new](https://user-images.githubusercontent.com/83042016/138647870-a75e9589-6b42-4ebd-b524-fc8582cee62a.gif)
+![beans-search](https://user-images.githubusercontent.com/83042016/141428111-390a9ae2-dbc8-4a85-afdc-2efc9707875c.gif)
 
 
 <br>
