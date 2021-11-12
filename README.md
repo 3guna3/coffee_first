@@ -68,7 +68,7 @@
 
 また、新着順や価格が安い順、高い順に検索結果を並べ替えることもできます。<br>
 
-![bean-price new](https://user-images.githubusercontent.com/83042016/138648247-08210e1d-8f6c-4b6e-8441-4bbe222ecd83.gif)
+![beans-select](https://user-images.githubusercontent.com/83042016/141429059-23d958cf-8746-494d-8951-7c6b8fc47830.gif)
 
 <br>
 
