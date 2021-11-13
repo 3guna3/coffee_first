@@ -81,7 +81,7 @@
 
 <br>
 
-![shop-search](https://user-images.githubusercontent.com/83042016/138648805-a6ba1578-c33e-40cb-807d-190ed1a6898d.gif)
+![shop-search](https://user-images.githubusercontent.com/83042016/141601090-eb0aa9a8-f4c7-476d-b828-a61fbfd48825.gif)
 
 
 <br>
