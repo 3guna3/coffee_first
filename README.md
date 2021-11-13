@@ -88,7 +88,7 @@
 
 また、新着順や評価が高い順に検索結果を並べ替えることもできます。<br>
 
-![shop-rate](https://user-images.githubusercontent.com/83042016/138650480-7ecaec27-3d67-467c-805c-dbbce16fed77.gif)
+![shop-select](https://user-images.githubusercontent.com/83042016/141601216-17e73ccf-d69d-45f0-8c85-5a318b3b5f43.gif)
 
 <br>
 
