@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :shop_comments, dependent: :destroy
   has_many :beans_comments, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 30 }
+  validates :self_introduction, length: { maximum: 500 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
